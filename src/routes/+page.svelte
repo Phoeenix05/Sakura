@@ -4,6 +4,7 @@
 
 <h1>Welcome to Tauri!</h1>
 
+<!-- border-2 border-red-600 -->
 <div class="row">
   <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
     <img src="/vite.svg" class="logo vite" alt="Vite Logo" />

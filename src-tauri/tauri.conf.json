@@ -7,7 +7,7 @@
     "withGlobalTauri": false
   },
   "package": {
-    "productName": "mangadex-reader",
+    "productName": "Mangadex Reader",
     "version": "0.0.0"
   },
   "tauri": {
@@ -33,7 +33,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "com.github.phoeenix05",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
@@ -63,7 +63,11 @@
         "height": 600,
         "resizable": true,
         "title": "mangadex-reader",
-        "width": 800
+        "width": 800,
+        "hiddenTitle": true,
+        "titleBarStyle": "Overlay",
+        "minHeight": 600,
+        "minWidth": 800
       }
     ]
   }
