@@ -1,7 +1,9 @@
-<script>
+<script lang="ts">
   import "../app.css";
 </script>
 
-<main class="container">
+<main class="mt-7">
   <slot />
 </main>
+
+<!-- <style lang="sass"></style> -->
