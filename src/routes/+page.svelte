@@ -1,7 +1,7 @@
 <!-- <script lang="ts"></script> -->
 
 <div>
-  <a href="/manga/b5433cfe-5143-4a15-92d5-9853f7e17bd2">Read</a>
+  <a href="/manga/2356f5ff-143f-4e3b-96e6-9d9f5efab8c5">Read</a>
 </div>
 
 <!-- <style lang="sass"></style> -->
