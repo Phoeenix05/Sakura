@@ -5,6 +5,6 @@
 
 <div>
   <a href="/">Home</a>
-  <a href="/{data.id}/1">Chapter</a>
+  <a href="/chapter/{data.id}">Chapter</a>
   <p>{data.id}</p>
 </div>
