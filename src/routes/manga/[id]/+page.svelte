@@ -1,23 +1,31 @@
 <script>
   /** @type {import('./$types').PageData} */
   export let data;
+  // export let sortOrder = "Ascending"
+
+  // export const changeSortOrder = () => {
+  //   if (sortOrder === "Ascending") {
+  //     sortOrder = "Descending"
+  //   } else {
+  //     sortOrder = "Ascending"
+  //   }
+  //   console.log(sortOrder)
+  // }
 </script>
 
 <div>
   <a href="/">Home</a>
-  <!-- <a href="/manga/{data.id}/{data.mangaData.data.attributes.latestUploadedChapter}">Chapter</a> -->
   <p>Manga: {data.id}</p>
-
+  
+  <!-- <button on:click={changeSortOrder}>{sortOrder}</button> -->
   <ul>
-    {#each data.mangaData as chapter, i}
-      <!-- {#if i > 0} -->
-        <li>
-          <!-- <p>{chapter.attributes.publisher}</p> -->
-          <a href="/manga/{data.id}/{chapter.id}">{chapter.attributes.chapter} {chapter.attributes.title}</a>
-        </li>
-      <!-- {/if} -->
+    {#each data.mangaData as chapter}
+      <li class="p-2 hover:bg-[#242424] transition-all duration-75">
+        <a href="/manga/{data.id}/{chapter.id}">
+          <p class="bold">Ch. {chapter.attributes.chapter} {chapter.attributes.title}</p>
+          <p>{chapter.attributes.publishAt}</p>
+        </a>
+      </li>
     {/each}
   </ul>
-
-  <!-- <pre>{JSON.stringify(data.mangaData, null, 2)}</pre> -->
 </div>
