@@ -1,6 +1,8 @@
-mod app;
+// mod app;
+mod routes;
+mod components;
 
-use app::App;
+use components::app::App;
 
 fn main() {
     yew::Renderer::<App>::new().render();

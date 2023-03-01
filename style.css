@@ -1,3 +1,8 @@
+/* html {
+  border-radius: 10px;
+  overflow: hidden;
+} */
+
 .logo.yew:hover {
   filter: drop-shadow(0 0 2em #20a88a);
 }
@@ -102,4 +107,32 @@ button {
     color: #ffffff;
     background-color: #0f0f0f98;
   }
+}
+
+
+/* Target the title text */
+.tauri-titlebar .title {
+  color: white;
+  font-size: 16px;
+}
+
+/* Target the window controls */
+.tauri-titlebar .window-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Target the close button */
+.tauri-titlebar .window-controls .close-button {
+  background-color: red;
+  color: white;
+  padding: 6px;
+  border-radius: 50%;
+}
+
+/* Target the background of the title bar */
+.tauri-titlebar {
+  background-color: #fff;
+  height: 60px; /* This sets the height of the title bar */
 }
