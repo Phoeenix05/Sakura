@@ -1,6 +1,6 @@
 // mod app;
-mod routes;
-mod components;
+pub mod components;
+pub mod routes;
 
 use components::app::App;
 
