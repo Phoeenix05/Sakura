@@ -8,7 +8,8 @@
         "width": 800,
         "resizable": true,
         "title": "Mangadex Reader",
-        "titleBarStyle": "Transparent"
+        "titleBarStyle": "Overlay",
+        "hiddenTitle": true
       }
     ]
   }

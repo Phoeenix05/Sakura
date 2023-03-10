@@ -27,9 +27,12 @@
       },
       "externalBin": [],
       "icon": [
-        "icons/32x32.png",
-        "icons/128x128.png",
-        "icons/128x128@2x.png",
+        "icons/icon@32px.png",
+        "icons/icon@64px.png",
+        "icons/icon@128px.png",
+        "icons/icon@256px.png",
+        "icons/icon@512px.png",
+        "icons/icon@1024px.png",
         "icons/icon.icns",
         "icons/icon.ico"
       ],
