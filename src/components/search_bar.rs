@@ -3,7 +3,7 @@ use web_sys::HtmlElement;
 use yew::prelude::*;
 
 #[function_component]
-fn SearchBar() -> Html {
+pub fn SearchBar() -> Html {
     let div_node_ref = use_node_ref();
 
     use_effect_with_deps(
@@ -14,7 +14,7 @@ fn SearchBar() -> Html {
                 let mut key_listener = None;
 
                 if let Some(element) = div_node_ref.cast::<HtmlElement>() {
-                    let onkeypress = Callback::from(move |event: Event| {});
+                    let onkeypress = Callback::from(move |_event: Event| {});
 
                     let listener = EventListener::new(&element, "keypress", move |e| {
                         onkeypress.emit(e.clone())

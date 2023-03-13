@@ -1,3 +1,5 @@
-pub mod app;
-pub mod navbar;
-pub mod search_bar;
+mod navbar;
+mod search_bar;
+
+pub use navbar::Navigation;
+pub use search_bar::SearchBar;

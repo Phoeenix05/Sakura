@@ -1,7 +1,7 @@
 use yew::prelude::*;
 use yew_router::prelude::Link;
 
-use crate::components::app::Route;
+use crate::app::Route;
 
 #[derive(PartialEq, Properties)]
 pub struct Props {
