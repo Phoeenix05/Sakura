@@ -1,71 +1,28 @@
-use yew::prelude::*;
-use yew_router::prelude::Link;
+use leptos::*;
+use leptos_router::*;
 
-use crate::app::Route;
-
-#[derive(PartialEq, Properties)]
-pub struct Props {
-    pub uuid: String,
+#[derive(Params, PartialEq, Clone, Debug)]
+pub struct MangaParams {
+    uuid: String,
 }
 
-#[function_component]
-pub fn Page(props: &Props) -> Html {
-    html! {
-        <div>
-            <Link<Route> to={Route::Home}>{ "Home" }</Link<Route>>
-            { props.uuid.clone() }
-        </div>
+#[component]
+pub fn Manga(cx: Scope) -> impl IntoView {
+    // Get page params
+    let params = use_params::<MangaParams>(cx);
+    let _data = create_resource(
+        cx,
+        move || params.get().map(|params| params.uuid).ok().unwrap(),
+        move |_| async move {
+            spawn_local(async {
+                // let client = reqwest::Client::new();
+                // let res = client.get("https://api.mangadex.org/list/e81b4d3d-2692-4af9-9300-91012d079cd6/feed").send().await.unwrap().text().await;
+                // log!("{:#?}", res);
+            })
+        },
+    );
+
+    view! { cx,
+        <main></main>
     }
 }
-
-// // fn fetch_data() {
-// //     todo!()
-// // }
-//
-// pub enum Msg {
-//     DataLoaded(String),
-//     Error,
-// }
-//
-// #[derive(Properties, PartialEq)]
-// pub struct Props {
-//     pub uuid: String,
-// }
-//
-// pub struct Page {
-//     // data: Option<String>,
-//     uuid: String,
-// }
-//
-// impl Component for Page {
-//     type Message = Msg;
-//     type Properties = Props;
-//
-//     fn create(_ctx: &Context<Self>) -> Self {
-//         Self {
-//             uuid: _ctx.props().uuid.clone(),
-//             // data: Some("".to_string()),
-//         }
-//     }
-//
-//     fn update(&mut self, _ctx: &Context<Self>, msg: Self::Message) -> bool {
-//         match msg {
-//             Msg::DataLoaded(data) => {
-//
-//                 true
-//             },
-//             Msg::Error => {
-//                 true
-//             }
-//         }
-//     }
-//
-//     fn view(&self, _ctx: &Context<Self>) -> Html {
-//         html! {
-//             <>
-//                 <p>{ &self.uuid }</p>
-//                 <Link<Route> to={Route::Home}>{ "Home" }</Link<Route>>
-//             </>
-//         }
-//     }
-// }

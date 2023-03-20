@@ -1,5 +1,11 @@
-mod manga;
-mod settings;
+mod chapter;
+pub use chapter::*;
 
-pub use settings::Page as SettingsPage;
-pub use manga::Page as MangaPage;
+mod index;
+pub use index::*;
+
+mod manga;
+pub use manga::*;
+
+mod settings;
+pub use settings::*;

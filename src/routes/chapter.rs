@@ -2,14 +2,14 @@ use leptos::*;
 use leptos_router::*;
 
 #[derive(Params, PartialEq, Clone, Debug)]
-pub struct SettingsParams {
-    setting: String,
+pub struct ChapterParams {
+    uuid: String,
 }
 
 #[component]
-pub fn Settings(cx: Scope) -> impl IntoView {
+pub fn Chapter(cx: Scope) -> impl IntoView {
     // Get page params
-    let _ = use_params::<SettingsParams>(cx);
+    let _ = use_params::<ChapterParams>(cx);
 
     view! { cx,
         <main></main>

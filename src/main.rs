@@ -1,10 +1,34 @@
-// mod app;
-pub mod components;
-pub mod routes;
-pub mod app;
+use leptos::*;
+use leptos_router::*;
 
-use app::App;
+mod app;
+mod components;
+mod routes;
+
+use app::*;
+use components::*;
+
+#[component]
+fn Main(cx: Scope) -> impl IntoView {
+    view! { cx,
+        <Router>
+            <Routes>
+                <Route path="/" view=move |cx| view! { cx, <App /> } />
+                <Route path="/manga/:id" view=move |_| view! { cx, <></> } />
+                <Route path="/chapter/:id" view=move |_| view! { cx, <></> } />
+                <Route path="/settings/:setting" view=move |_| view! { cx, <></> } />
+            </Routes>
+        </Router>
+    }
+}
 
 fn main() {
-    yew::Renderer::<App>::new().render();
+    mount_to_body(|cx| {
+        view! { cx,
+            <>
+                <Navbar />
+                <Main />
+            </> 
+        }
+    })
 }
