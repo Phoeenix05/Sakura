@@ -31,7 +31,7 @@ div#navbar {
   padding-top: 1.7rem;
 }
 
-div#navbar .nav_item {
+div#navbar .nav_item#settings {
   width: 66%;
   margin: 16.5%;
 }
