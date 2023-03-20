@@ -1,0 +1,6 @@
+{
+  "emmet.includeLanguages": {
+    "rust": "html"
+  },
+  "files.autoSave": "off"
+}

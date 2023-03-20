@@ -1,13 +1,13 @@
 {
   "build": {
-    "beforeDevCommand": "pnpm dev",
-    "beforeBuildCommand": "pnpm build",
+    "beforeDevCommand": "trunk serve",
+    "beforeBuildCommand": "trunk build",
     "devPath": "http://localhost:1420",
-    "distDir": "../build",
-    "withGlobalTauri": false
+    "distDir": "../dist",
+    "withGlobalTauri": true
   },
   "package": {
-    "productName": "Mangadex Reader",
+    "productName": "tauri-app",
     "version": "0.0.0"
   },
   "tauri": {
@@ -16,10 +16,6 @@
       "shell": {
         "all": false,
         "open": true
-      },
-      "window": {
-        "all": false,
-        "startDragging": true
       }
     },
     "bundle": {
@@ -31,9 +27,12 @@
       },
       "externalBin": [],
       "icon": [
-        "icons/32x32.png",
-        "icons/128x128.png",
-        "icons/128x128@2x.png",
+        "icons/icon@32px.png",
+        "icons/icon@64px.png",
+        "icons/icon@128px.png",
+        "icons/icon@256px.png",
+        "icons/icon@512px.png",
+        "icons/icon@1024px.png",
         "icons/icon.icns",
         "icons/icon.ico"
       ],
@@ -66,12 +65,8 @@
         "fullscreen": false,
         "height": 600,
         "resizable": true,
-        "title": "mangadex-reader",
-        "width": 800,
-        "hiddenTitle": true,
-        "titleBarStyle": "Overlay",
-        "minHeight": 600,
-        "minWidth": 800
+        "title": "tauri-app",
+        "width": 800
       }
     ]
   }

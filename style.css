@@ -1,0 +1,37 @@
+:root {
+  --bg-color: #1C1C1C;
+  --secondary-color: #232323;
+  --secondary-color-hover: #282828;
+  --svg-color: #707070;
+  --nav-width: 68px;
+}
+
+svg {
+  stroke: var(--svg-color);
+}
+
+html {
+  background: var(--bg-color);
+  margin-left: var(--nav-width);
+}
+
+div#navbar {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  width: var(--nav-width);
+  height: 100vh;
+  background: var(--secondary-color);
+  border-right: 2px solid var(--secondary-color-hover);
+  box-sizing: border-box;
+  padding-top: 1.7rem;
+}
+
+div#navbar .nav_item#settings {
+  width: 66%;
+  margin: 16.5%;
+}
