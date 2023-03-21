@@ -1,20 +1,40 @@
 use anyhow::Result;
 use leptos::*;
 use leptos_router::*;
-// use serde::{Deserialize, Serialize};s
+// use reqwasm::http::Headers;
+use serde::{Deserialize, Serialize};
 use serde_json::Value;
+use serde_wasm_bindgen::to_value;
+use wasm_bindgen::prelude::*;
 // use wasm_bindgen_futures::spawn_local;
 
-async fn fetch_manga_data(uuid: String) -> Result<Value> {
-    let res = reqwasm::http::Request::get(&format!("https://api.mangadex.org/manga/{uuid}/feed"))
-        .send()
-        .await?
-        .text()
-        .await?;
+use wasm_bindgen;
 
-    let json: Value = serde_json::from_str(res.as_str()).unwrap();
+// async fn fetch_manga_data(uuid: String) -> Result<Value> {
+//     let headers = Headers::new();
+//     headers.append("Access-Control-Allow-Origi", "tauri://*");
 
-    Ok(json)
+//     let res = reqwasm::http::Request::get(&format!("https://api.mangadex.org/manga/{uuid}/feed"))
+//         .headers(headers)
+//         .send()
+//         .await?
+//         .text()
+//         .await?;
+
+//     let json: Value = serde_json::from_str(res.as_str()).unwrap();
+
+//     Ok(json)
+// }
+
+#[wasm_bindgen]
+extern "C" {
+    #[wasm_bindgen (js_namespace = ["window", "__TAURI__", "tauri"])]
+    async fn invoke(cmd: &str, args: JsValue) -> JsValue;
+}
+
+#[derive(Serialize, Deserialize)]
+struct MangaDataArgs {
+    uuid: String,
 }
 
 #[derive(Params, PartialEq, Clone, Debug)]
@@ -30,7 +50,13 @@ pub fn Manga(cx: Scope) -> impl IntoView {
     let data = create_resource(
         cx,
         move || params.get().map(|p| p.uuid).ok(),
-        move |uuid| async move { fetch_manga_data(uuid.unwrap()).await.unwrap() },
+        move |uuid| async move {
+            let args = to_value(&MangaDataArgs {
+                uuid: uuid.unwrap(),
+            });
+            let data = invoke("fetch_manga_data", args.unwrap()).await;
+            data.as_string().unwrap()
+        },
     );
 
     create_effect(cx, move |_| {
@@ -41,7 +67,7 @@ pub fn Manga(cx: Scope) -> impl IntoView {
         // data.read(cx).
         // view! { cx, <pre>{  }</pre>}
         match data.read(cx) {
-            Some(data) => view! { cx, <pre>{ data.to_string() }</pre>},
+            Some(data) => view! { cx, <pre>{ data }</pre>},
             None => view! { cx, <pre>"Loading..."</pre> },
         }
     };
