@@ -13,6 +13,16 @@ svg {
 html {
   background: var(--bg-color);
   margin-left: var(--nav-width);
+  overflow: hidden;
+}
+
+div#drag_region {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 26px;
+  z-index: 99;
 }
 
 div#navbar {
