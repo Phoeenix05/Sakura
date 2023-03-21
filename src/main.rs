@@ -1,34 +1,25 @@
 use leptos::*;
 use leptos_router::*;
 
-mod app;
 mod components;
 mod routes;
+mod util;
 
-use app::*;
 use components::*;
-
-#[component]
-fn Main(cx: Scope) -> impl IntoView {
-    view! { cx,
-        <Router>
-            <Routes>
-                <Route path="/" view=move |cx| view! { cx, <App /> } />
-                <Route path="/manga/:id" view=move |_| view! { cx, <></> } />
-                <Route path="/chapter/:id" view=move |_| view! { cx, <></> } />
-                <Route path="/settings/:setting" view=move |_| view! { cx, <></> } />
-            </Routes>
-        </Router>
-    }
-}
+use routes::*;
 
 fn main() {
     mount_to_body(|cx| {
         view! { cx,
-            <>
+            <Router>
                 <Navbar />
-                <Main />
-            </> 
+                <Routes>
+                    <Route path="/" view=move |cx| view! { cx, <Index /> } />
+                    <Route path="/manga/:uuid" view=move |cx| view! { cx, <Manga /> } />
+                    <Route path="/chapter/:uuid" view=move |cx| view! { cx, <Chapter /> } />
+                    <Route path="/settings/:setting" view=move |cx| view! { cx, <Settings /> } />
+                </Routes>
+            </Router>
         }
     })
 }

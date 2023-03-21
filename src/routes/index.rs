@@ -1,5 +1,5 @@
 use leptos::*;
-use leptos_router::*;
+// use leptos_router::*;
 
 #[component]
 pub fn Index(cx: Scope) -> impl IntoView {
