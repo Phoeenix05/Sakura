@@ -6,6 +6,10 @@
   --nav-width: 68px;
 }
 
+* {
+  color: white;
+}
+
 svg {
   stroke: var(--svg-color);
 }
@@ -14,6 +18,7 @@ html {
   background: var(--bg-color);
   margin-left: var(--nav-width);
   overflow: hidden;
+  padding-top: 4rem;
 }
 
 div#drag_region {

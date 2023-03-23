@@ -1,2 +1,2 @@
 mod manga_response;
-pub use manga_response::MangaFeed;
+pub use manga_response::Feed;

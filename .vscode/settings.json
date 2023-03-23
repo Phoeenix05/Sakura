@@ -2,5 +2,6 @@
   "emmet.includeLanguages": {
     "rust": "html"
   },
-  "files.autoSave": "off"
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 2000
 }
