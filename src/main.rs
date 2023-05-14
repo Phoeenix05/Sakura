@@ -8,6 +8,21 @@ mod util;
 use components::*;
 use routes::*;
 
+// fn main_body(cx: Scope) -> impl IntoView {
+//     view! { cx, 
+//         <Router>
+//             <div data-tauri-drag-region id="drag_region"></div>
+//             <Navbar />
+//             <Routes>
+//                 <Route path="/" view=move |cx| view! { cx, <Index /> } />
+//                 <Route path="/manga/:uuid" view=move |cx| view! { cx, <Manga /> } />
+//                 <Route path="/chapter/:uuid" view=move |cx| view! { cx, <Chapter /> } />
+//                 <Route path="/settings/:setting" view=move |cx| view! { cx, <Settings /> } />
+//             </Routes>
+//         </Router>
+//     }
+// }
+
 fn main() {
     mount_to_body(|cx| {
         view! { cx,
