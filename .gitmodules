@@ -1,0 +1,3 @@
+[submodule "mangadex-dl"]
+	path = mangadex-dl
+	url = https://github.com/Phoeenix05/mangadex-dl
