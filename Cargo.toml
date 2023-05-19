@@ -17,4 +17,8 @@ cfg-if = "1.0.0"
 web-sys = { version = "0.3.61", features = ["AbortController", "AbortSignal"] }
 
 [workspace]
-members = ["src-tauri"]
+members = [
+    "src-tauri", 
+    "mangadex-dl/mangadex-dl"
+]
+

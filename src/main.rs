@@ -4,6 +4,7 @@ use leptos_router::*;
 mod components;
 mod routes;
 mod util;
+mod json;
 
 use components::*;
 use routes::*;
