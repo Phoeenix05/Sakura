@@ -6,6 +6,8 @@ use serde_wasm_bindgen::to_value;
 use wasm_bindgen;
 use wasm_bindgen::prelude::*;
 
+use crate::util::MangaFeed;
+
 #[wasm_bindgen]
 extern "C" {
     #[wasm_bindgen (js_namespace = ["window", "__TAURI__", "tauri"])]
@@ -19,47 +21,36 @@ pub struct MangaParams {
 
 #[component]
 pub fn Manga(cx: Scope) -> impl IntoView {
-    // let abort_controller = web_sys::AbortController::new().ok();
-    // let abort_signal = abort_controller.as_ref().map(|a| a.signal()).unwrap();
-
-    let params = use_params_map(cx);
+    let params = use_params::<MangaParams>(cx);
 
     let data = create_resource(
         cx,
         move || {
-            params.get().get("uuid").unwrap().clone()
-            // abort_signal.clone(),
+            let uuid = params.get().unwrap().uuid.to_owned();
+            uuid
         },
         move |uuid| async move {
-            // NOTE: For some reason querying the data inside this functions throws an error
-            // so for now it is done on tauri's side. Also cleaning up data when navigating off of
-            // this page isn't done properly.
             let data = invoke("fetch_manga_data", to_value(&MangaParams { uuid }).unwrap())
                 .await
                 .as_string()
                 .unwrap();
-            data
+            let json = serde_json::from_str::<MangaFeed>(&data).unwrap();
+            json
         },
     );
 
     create_effect(cx, move |_| {
-        log!("params = {:#?}", params.get());
-    });
-
-    on_cleanup(cx, move || {
-        // if let Some(abort_controller) = abort_controller {
-        //     abort_controller.abort();
-        // }
+        log!("params = {:#?}", params.get().unwrap());
     });
 
     let data_display = move || match data.read(cx) {
-        Some(data) => view! { cx, <pre>{ data }</pre>},
-        None => view! { cx, <pre>"Loading..."</pre> },
+        Some(data) => view! { cx, <><pre>{ data.to_string() }</pre></>},
+        None => view! { cx, <>"Loading..."</> },
     };
 
     view! { cx,
-        <div>
-            <Transition fallback=move || view! { cx, <p>"Loading..."</p> }>
+        <div id="manga_data">
+            <Transition fallback=move || view! { cx, <>"Loading..."</>}>
                 { data_display }
             </Transition>
         </div>

@@ -5,3 +5,21 @@
   --svg-color: #707070;
   --nav-width: 68px;
 }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+#navbar {
+  margin-top: 1.5rem;
+}
+
+#drag_region {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  height: 48px;
+  width: 100vw;
+}
