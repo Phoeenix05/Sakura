@@ -2,6 +2,7 @@ use anyhow::Result;
 use leptos::*;
 use leptos_router::*;
 use serde::{Deserialize, Serialize};
+use serde_json::Value;
 use serde_wasm_bindgen::to_value;
 
 use crate::json::MangaFeed;
@@ -28,7 +29,12 @@ pub fn Manga(cx: Scope) -> impl IntoView {
                 .as_string()
                 .unwrap();
             let json = serde_json::from_str::<MangaFeed>(&data).unwrap();
-            json
+            let chapters = json
+                .data
+                .into_iter()
+                .map(|chapter| (chapter.attributes.title, chapter.id))
+                .collect::<Vec<_>>();
+            chapters
         },
     );
 
@@ -37,8 +43,12 @@ pub fn Manga(cx: Scope) -> impl IntoView {
     });
 
     let data_display = move || match data.read(cx) {
-        Some(data) => view! { cx, <><pre>{ data.to_string() }</pre></>},
-        None => view! { cx, <>"Loading..."</> },
+        Some(data) => Some(
+            data.into_iter()
+                .map(|(_title, id)| view! { cx, <p>{ id }</p> })
+                .collect::<Vec<_>>(),
+        ),
+        None => None,
     };
 
     view! { cx,
