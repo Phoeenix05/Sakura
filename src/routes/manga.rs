@@ -2,11 +2,11 @@ use anyhow::Result;
 use leptos::*;
 use leptos_router::*;
 use serde::{Deserialize, Serialize};
-use serde_json::Value;
-use serde_wasm_bindgen::to_value;
+// use serde_json::Value;
+// use serde_wasm_bindgen::to_value;
 
 use crate::json::MangaFeed;
-use crate::util::invoke;
+// use crate::util::invoke;
 
 #[derive(Params, PartialEq, Clone, Debug, Serialize, Deserialize)]
 pub struct MangaParams {
@@ -24,12 +24,17 @@ pub fn Manga(cx: Scope) -> impl IntoView {
             uuid
         },
         move |uuid| async move {
-            let data = invoke("fetch_manga_data", to_value(&MangaParams { uuid }).unwrap())
+            let client = reqwest::Client::new();
+            let res = client
+                .get(format!("https://api.mangadex.org/manga/{uuid}/feed"))
+                .send()
                 .await
-                .as_string()
+                .unwrap()
+                .json::<MangaFeed>()
+                .await
                 .unwrap();
-            let json = serde_json::from_str::<MangaFeed>(&data).unwrap();
-            let chapters = json
+
+            let chapters = res
                 .data
                 .into_iter()
                 .map(|chapter| (chapter.attributes.title, chapter.id))
@@ -42,13 +47,15 @@ pub fn Manga(cx: Scope) -> impl IntoView {
         log!("params = {:#?}", params.get().unwrap());
     });
 
-    let data_display = move || match data.read(cx) {
+    let data_display = move || {
+        match data.read(cx) {
         Some(data) => Some(
             data.into_iter()
-                .map(|(_title, id)| view! { cx, <p>{ id }</p> })
+                .map(|(_title, id)| view! { cx, <><A href={"/chapter/".to_owned() + &id}>{ id }</A><br/></> })
                 .collect::<Vec<_>>(),
         ),
         None => None,
+    }
     };
 
     view! { cx,

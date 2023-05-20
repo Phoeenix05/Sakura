@@ -7,6 +7,7 @@ pub fn Navbar(cx: Scope) -> impl IntoView {
         <div id="navbar">
             <A exact=true href="/">{"Home"}</A>
             <A href="/manga/e6eb6bd0-0285-4fac-a6da-9bc4234ac1bb">{"Manga"}</A>
+            <A href="/chapter/71e9509e-d67e-49e5-b552-e03e67d04ae7">{"Chapter"}</A>
         </div>
     }
 }

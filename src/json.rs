@@ -99,3 +99,57 @@ pub enum Type {
     #[serde(rename = "user")]
     User,
 }
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct AtHomeServer {
+    #[serde(rename = "result")]
+    result: String,
+
+    #[serde(rename = "baseUrl")]
+    base_url: String,
+
+    #[serde(rename = "chapter")]
+    chapter: ChapterImages,
+}
+
+impl ToString for AtHomeServer {
+    fn to_string(&self) -> String {
+        format!("{:#?}", self)
+    }
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct ChapterImages {
+    #[serde(rename = "hash")]
+    hash: String,
+
+    #[serde(rename = "data")]
+    data: Vec<String>,
+
+    #[serde(rename = "dataSaver")]
+    data_saver: Vec<String>,
+}
+
+// #[derive(Serialize, Deserialize)]
+// pub struct AtHomeServerNotFound {
+//     #[serde(rename = "result")]
+//     result: String,
+
+//     #[serde(rename = "errors")]
+//     errors: Vec<Error>,
+// }
+
+// #[derive(Serialize, Deserialize)]
+// pub struct Error {
+//     #[serde(rename = "id")]
+//     id: String,
+
+//     #[serde(rename = "status")]
+//     status: i64,
+
+//     #[serde(rename = "title")]
+//     title: String,
+
+//     #[serde(rename = "detail")]
+//     detail: String,
+// }
