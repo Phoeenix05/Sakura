@@ -1,7 +1,7 @@
 use leptos::*;
 use leptos_router::*;
 
-use crate::json::AtHomeServer;
+use mangadex_api::json::at_home::AtHomeServer;
 
 #[derive(Params, PartialEq, Clone, Debug)]
 pub struct ChapterParams {
@@ -38,8 +38,8 @@ pub fn Chapter(cx: Scope) -> impl IntoView {
     });
 
     let data_display = move || match data.read(cx) {
-        Some(data) => view! { cx, <><pre>{ data.to_string() }</pre></> },
-        None => view! { cx, <></> }
+        Some(data) => view! { cx, <><pre>{ format!("{data:#?}") }</pre></> },
+        None => view! { cx, <></> },
     };
 
     view! { cx,
