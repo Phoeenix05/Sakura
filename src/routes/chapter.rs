@@ -38,13 +38,34 @@ pub fn Chapter(cx: Scope) -> impl IntoView {
     });
 
     let data_display = move || match data.read(cx) {
-        Some(data) => view! { cx, <><pre>{ format!("{data:#?}") }</pre></> },
-        None => view! { cx, <></> },
+        Some(data) => {
+            let base_url = data.base_url;
+            let hash = data.chapter.hash;
+            let url = format!("{}/data/{}", base_url, hash);
+
+            let display = data
+                .chapter
+                .data
+                .into_iter()
+                .map(|image| {
+                    view! { cx,
+                       <>
+                           <img id="image" src={format!("{}/{}", url, image)} />
+                       </>
+                    }
+                })
+                .collect::<Vec<_>>();
+
+            Some(display)
+        }
+        None => None,
     };
 
     view! { cx,
-        <Transition fallback=move || view! { cx, <>"Loading..."</> }>
-            { data_display }
-        </Transition>
+        <div id="chapter_data">
+            <Transition fallback=move || view! { cx, <>"Loading..."</>}>
+                { data_display }
+            </Transition>
+        </div>
     }
 }
