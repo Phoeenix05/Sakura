@@ -1,11 +1,12 @@
 use leptos::*;
 use leptos_router::*;
+use uuid::Uuid;
 
 use mangadex_api::json::at_home::AtHomeServer;
 
 #[derive(Params, PartialEq, Clone, Debug)]
 pub struct ChapterParams {
-    uuid: String,
+    uuid: Uuid,
 }
 
 #[component]
@@ -26,7 +27,6 @@ pub fn Chapter(cx: Scope) -> impl IntoView {
                 .await
                 .unwrap()
                 .json::<AtHomeServer>()
-                // .text()
                 .await
                 .unwrap();
             res

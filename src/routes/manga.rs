@@ -1,14 +1,10 @@
-use anyhow::Result;
 use leptos::*;
 use leptos_router::*;
-use serde::{Deserialize, Serialize};
-
-use mangadex_api::json;
-use mangadex_api::wrapper::get_manga_feed;
-
 use uuid::Uuid;
 
-#[derive(Params, PartialEq, Clone, Debug, Serialize, Deserialize)]
+use mangadex_api::json::manga::MangaFeed;
+
+#[derive(Params, PartialEq, Clone, Debug)]
 pub struct MangaParams {
     uuid: Uuid,
 }
@@ -24,12 +20,17 @@ pub fn Manga(cx: Scope) -> impl IntoView {
             uuid
         },
         move |uuid| async move {
-            let res = get_manga_feed(uuid, None).await;
-
-            match res {
-                json::Result::Ok(res) => Ok(res),
-                json::Result::Err(err) => Err(err)
-            }
+            let client = reqwest::Client::new();
+            let res = client
+                .get(format!("https://api.mangadex.org/manga/{uuid}/feed"))
+                .send()
+                .await
+                .unwrap()
+                .json::<MangaFeed>()
+                // .text()
+                .await
+                .unwrap();
+            res
         },
     );
 
@@ -39,13 +40,14 @@ pub fn Manga(cx: Scope) -> impl IntoView {
 
     let data_display = move || {
         match data.read(cx) {
-        Some(data) => Some(
-            data.unwrap().data.into_iter()
-                .map(|manga| view! { cx, <><A href={"/chapter/".to_owned() + &manga.id.to_string().as_str()}>{ manga.attributes.title.unwrap() }</A><br/></> })
-                .collect::<Vec<_>>()
-        ),
-        None => None,
-    }
+            Some(data) => Some(
+                data.data.into_iter()
+                    .map(|manga| view! { cx, <><A href={"/chapter/".to_owned() + &manga.id.to_string().as_str()}>{ manga.attributes.title.unwrap() }</A><br/></> })
+                    .collect::<Vec<_>>()
+                // view! { cx, <><pre>{ data.to_string() }</pre></> },
+            ),
+            None => None,
+        }
     };
 
     view! { cx,
