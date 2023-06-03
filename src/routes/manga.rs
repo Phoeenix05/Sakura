@@ -27,7 +27,6 @@ pub fn Manga(cx: Scope) -> impl IntoView {
                 .await
                 .unwrap()
                 .json::<MangaFeed>()
-                // .text()
                 .await
                 .unwrap();
             res
@@ -38,16 +37,23 @@ pub fn Manga(cx: Scope) -> impl IntoView {
         log!("params = {:#?}", params.get().unwrap());
     });
 
-    let data_display = move || {
-        match data.read(cx) {
-            Some(data) => Some(
-                data.data.into_iter()
-                    .map(|manga| view! { cx, <><A href={"/chapter/".to_owned() + &manga.id.to_string().as_str()}>{ manga.attributes.title.unwrap() }</A><br/></> })
-                    .collect::<Vec<_>>()
-                // view! { cx, <><pre>{ data.to_string() }</pre></> },
-            ),
-            None => None,
-        }
+    let data_display = move || match data.read(cx) {
+        Some(data) => Some(
+            data.data
+                .into_iter()
+                .map(|manga| {
+                    let id = manga.id;
+                    let title = manga.attributes.title.unwrap_or("null".to_string());
+                    view! { cx,
+                        <>
+                            <A href={"/chapter/".to_owned() + id.to_string().as_str()}>{ title }</A>
+                            <br/>
+                        </>
+                    }
+                })
+                .collect::<Vec<_>>(),
+        ),
+        None => None,
     };
 
     view! { cx,
