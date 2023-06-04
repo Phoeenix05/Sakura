@@ -1,11 +1,11 @@
 html {
   background: #111111;
+  color: white;
 }
 
-body {
-/*  margin: 20px;*/
-/*  background: #2d2d2d;*/
-/*  color: white;*/
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
 .heading {

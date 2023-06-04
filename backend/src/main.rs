@@ -8,6 +8,9 @@ use tauri::Manager;
 #[tauri::command]
 async fn fetch(path: String) -> String {
     let url = format!("https://api.mangadex.org/{}", path);
+    #[cfg(debug_assertions)]
+    dbg!(&url);
+
     let client = reqwest::Client::new();
     let res = client.get(url).send().await.unwrap().text().await.unwrap();
     res

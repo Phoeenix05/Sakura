@@ -1,16 +1,16 @@
 use leptos::*;
-use leptos_router::{Router, Routes, Route, A};
+use leptos_router::{Route, Router, Routes, A};
 
-mod manga;
 mod chapter;
+mod manga;
 
-use manga::*;
 use chapter::*;
+use manga::*;
 
 #[component]
 fn Home(cx: Scope) -> impl IntoView {
     view! { cx,
-        <A href="manga/c288b108-5162-4065-aa3a-5857ec38c8d9">"Hello, World"</A>
+        <A href="manga/e78a489b-6632-4d61-b00b-5206f5b8b22b">"Hello, World"</A>
     }
 }
 
