@@ -1,6 +1,5 @@
 use leptos::*;
 use leptos_router::*;
-use tauri::api::http::HttpRequestBuilder;
 use uuid::Uuid;
 
 use mangadex_api::json::manga::MangaFeed;
@@ -22,17 +21,9 @@ pub fn Manga(cx: Scope) -> impl IntoView {
         },
         move |uuid| async move {
             let url = format!("https://api.mangadex.org/manga/{uuid}/feed");
-            let client = tauri::api::http::ClientBuilder::new().build().unwrap();
-            let res = client
-                .send(
-                    HttpRequestBuilder::new("GET", url)
-                        .unwrap()
-                        .response_type(tauri::api::http::ResponseType::Text),
-                )
-                .await;
-
-            let json: MangaFeed = serde_json::from_value(res.unwrap().read().await.unwrap().data).unwrap();
-            json
+            let client = reqwest::Client::new();
+            let res = client.get(url).send().await.unwrap().json::<MangaFeed>().await.unwrap();
+            res
         },
     );
 
