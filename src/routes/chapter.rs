@@ -1,5 +1,6 @@
 use leptos::*;
 use leptos_router::*;
+use tauri::api::http::HttpRequestBuilder;
 use uuid::Uuid;
 
 use mangadex_api::json::at_home::AtHomeServer;
@@ -20,16 +21,19 @@ pub fn Chapter(cx: Scope) -> impl IntoView {
             uuid
         },
         move |uuid| async move {
-            let client = reqwest::Client::new();
+            let url = format!("https://api.mangadex.org/at-home/server/{uuid}");
+            let client = tauri::api::http::ClientBuilder::new().build().unwrap();
             let res = client
-                .get(format!("https://api.mangadex.org/at-home/server/{uuid}"))
-                .send()
-                .await
-                .unwrap()
-                .json::<AtHomeServer>()
-                .await
-                .unwrap();
-            res
+                .send(
+                    HttpRequestBuilder::new("GET", url)
+                        .unwrap()
+                        .response_type(tauri::api::http::ResponseType::Text),
+                )
+                .await;
+
+            let json: AtHomeServer =
+                serde_json::from_value(res.unwrap().read().await.unwrap().data).unwrap();
+            json
         },
     );
 
