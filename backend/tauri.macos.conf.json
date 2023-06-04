@@ -1,0 +1,16 @@
+{
+  "tauri": {
+    "macOSPrivateApi": true,
+    "windows": [
+      {
+        "fullscreen": false,
+        "resizable": true,
+        "title": "MangaDex Reader",
+        "hiddenTitle": true,
+        "titleBarStyle": "Overlay",
+        "width": 1280,
+        "height": 800
+      }
+    ]
+  }
+}

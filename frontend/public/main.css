@@ -1,0 +1,20 @@
+html {
+  background: #111111;
+}
+
+body {
+/*  margin: 20px;*/
+/*  background: #2d2d2d;*/
+/*  color: white;*/
+}
+
+.heading {
+  text-align: center;
+}
+
+#chapter_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+}
