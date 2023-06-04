@@ -9,6 +9,7 @@ Here're some of the project's best features:
 
 <br />
 <h2>🛠️ Installation Steps:</h2>
+<h3>APPLICATION ISN'T PRODUCTION READY</h3>
 <p>NOTE: For now you'll need download and build</p>
 
 <br />
