@@ -1,0 +1,9 @@
+{
+  "build": {
+    "beforeBuildCommand": "cd frontend && trunk build --release",
+    "beforeDevCommand": "cd frontend && trunk serve --address 192.168.100.187",
+    "devPath": "http://localhost:8080",
+    "distDir": "../frontend/dist/",
+    "withGlobalTauri": true
+  }
+}

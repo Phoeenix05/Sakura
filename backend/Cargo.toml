@@ -9,12 +9,16 @@ default-run = "app"
 edition = "2021"
 rust-version = "1.59"
 
+[lib]
+path = "src/main.rs"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
 [build-dependencies]
-tauri-build = { version = "2.0.0-alpha.0", features = [] }
+tauri-build = { version = "2.0.0-alpha.3", features = [] }
 
 [dependencies]
 reqwest = "0.11.18"
-tauri = { version = "2.0.0-alpha.0", features = ["devtools", "macos-private-api"] }
+tauri = { version = "2.0.0-alpha.3", features = ["devtools", "macos-private-api", "rustls-tls"] }
 
 [features]
 # by default Tauri runs in production mode
@@ -23,3 +27,4 @@ default = ["custom-protocol"]
 # this feature is used for production builds where `devPath` points to the filesystem
 # DO NOT remove this
 custom-protocol = ["tauri/custom-protocol"]
+

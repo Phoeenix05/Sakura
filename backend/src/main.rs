@@ -16,6 +16,11 @@ async fn fetch(path: String) -> String {
     res
 }
 
+#[cfg(target_os = "ios")]
+fn _start_app() {
+    main();
+}
+
 fn main() {
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![fetch])
