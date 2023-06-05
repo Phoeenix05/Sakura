@@ -1,7 +1,7 @@
 {
   "build": {
     "beforeBuildCommand": "cd frontend && trunk build --release",
-    "beforeDevCommand": "cd frontend && trunk serve",
+    "beforeDevCommand": "cd frontend && trunk serve --address 192.168.100.187",
     "devPath": "http://localhost:8080",
     "distDir": "../frontend/dist/",
     "withGlobalTauri": true
@@ -11,9 +11,6 @@
     "version": "0.1.0"
   },
   "tauri": {
-    "allowlist": {
-      "all": false
-    },
     "bundle": {
       "active": true,
       "category": "Entertainment",
@@ -49,9 +46,6 @@
     },
     "security": {
       "csp": null
-    },
-    "updater": {
-      "active": false
     },
     "windows": [
       {

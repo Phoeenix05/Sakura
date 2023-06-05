@@ -10,11 +10,11 @@ edition = "2021"
 rust-version = "1.59"
 
 [build-dependencies]
-tauri-build = { version = "1.2.1", features = [] }
+tauri-build = { version = "2.0.0-alpha.0", features = [] }
 
 [dependencies]
 reqwest = "0.11.18"
-tauri = { version = "1.2.3", features = ["devtools", "macos-private-api"] }
+tauri = { version = "2.0.0-alpha.0", features = ["devtools", "macos-private-api"] }
 
 [features]
 # by default Tauri runs in production mode
