@@ -1,7 +1,8 @@
-use crate::cmd::*;
 use leptos::*;
 use leptos_router::*;
-use mangadex_api::json::manga::MangaFeed;
+use mangadex_api::json::MangaFeed;
+
+use crate::cmd::*;
 
 #[derive(Debug, PartialEq, Params)]
 pub struct MangaParams {
@@ -14,16 +15,12 @@ pub fn Manga(cx: Scope) -> impl IntoView {
 
     let uuid = move || query.with(|query| query.as_ref().map(|q| q.id).unwrap_or_default());
 
-    let data = create_resource(
-        cx,
-        move || uuid(),
-        move |uuid| async move {
-            let query = "order[chapter]=desc&limit=500&translatedLanguage[]=en";
-            let path = format!("manga/{}/feed?{}", uuid, query);
-            let json: MangaFeed = fetch(path).await.unwrap();
-            json
-        },
-    );
+    let data = create_resource(cx, uuid, move |uuid| async move {
+        let query = "order[chapter]=desc&limit=500&translatedLanguage[]=en";
+        let path = format!("manga/{}/feed?{}", uuid, query);
+        let json: MangaFeed = fetch(path).await.unwrap();
+        json
+    });
 
     #[cfg(debug_assertions)]
     create_effect(cx, move |_| log!("{:#?}", uuid()));
@@ -36,7 +33,7 @@ pub fn Manga(cx: Scope) -> impl IntoView {
                 .map(|chapter| {
                     view! { cx,
                         <>
-                            <A href=format!("/chapter/{}", chapter.id.to_string())>
+                            <A href=format!("/chapter/{}", chapter.id)>
                                 { chapter.attributes.chapter }" "{ chapter.attributes.title.unwrap_or("".to_owned()) }
                             </A>
                             <br />

@@ -1,6 +1,7 @@
 use leptos::*;
 use leptos_router::*;
-use mangadex_api::json::at_home::AtHomeServer;
+use mangadex_api::json::AtHomeServer;
+
 use crate::cmd::*;
 
 #[derive(Debug, PartialEq, Params)]
@@ -12,38 +13,30 @@ pub struct ChapterParams {
 pub fn Chapter(cx: Scope) -> impl IntoView {
     let query = use_params::<ChapterParams>(cx);
 
-    let uuid = move || {
-        query.with(|query| query.as_ref().map(|q| q.id).unwrap_or_default())
-    };
+    let uuid = move || query.with(|query| query.as_ref().map(|q| q.id).unwrap_or_default());
 
-    let data = create_resource(
-        cx,
-        move || uuid(),
-        move |uuid| async move {
-            let path = format!("at-home/server/{}", uuid);
-            let json: AtHomeServer = fetch(path).await.unwrap();
-            json
-        }
-    );
+    let data = create_resource(cx, uuid, move |uuid| async move {
+        let path = format!("at-home/server/{}", uuid);
+        let json: AtHomeServer = fetch(path).await.unwrap();
+        json
+    });
 
     #[cfg(debug_assertions)]
-    create_effect(cx, move |_| {
-        log!("{:#?}", uuid())
-    });
+    create_effect(cx, move |_| log!("{:#?}", uuid()));
 
     let data_display = move || match data.read(cx) {
         Some(data) => {
             let base_url = data.base_url;
-            let access_token = data.chapter.hash;
+            let access_token = data.data.hash;
             let url = format!("{base_url}/data/{access_token}");
-            Some(data
-                .chapter
-                .data
-                .into_iter()
-                .map(|image| view! { cx, <img src=format!("{url}/{image}") /> })
-                .collect::<Vec<_>>()
+            Some(
+                data.data
+                    .data
+                    .into_iter()
+                    .map(|image| view! { cx, <img src=format!("{url}/{image}") /> })
+                    .collect::<Vec<_>>(),
             )
-        },
+        }
         None => None,
     };
     let fallback = move || view! { cx, <>"Loading..."</> };
