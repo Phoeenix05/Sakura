@@ -3,6 +3,7 @@ use leptos_router::*;
 use mangadex_api::json::MangaFeed;
 
 use crate::cmd::*;
+use crate::components::chapter::*;
 
 #[derive(Debug, PartialEq, Params)]
 pub struct MangaParams {
@@ -11,9 +12,9 @@ pub struct MangaParams {
 
 #[component]
 pub fn Manga(cx: Scope) -> impl IntoView {
-    let query = use_params::<MangaParams>(cx);
+    let params = use_params::<MangaParams>(cx);
 
-    let uuid = move || query.with(|query| query.as_ref().map(|q| q.id).unwrap_or_default());
+    let uuid = move || params.with(|query| query.as_ref().map(|q| q.id).unwrap_or_default());
 
     let data = create_resource(cx, uuid, move |uuid| async move {
         let query = "order[chapter]=desc&limit=500&translatedLanguage[]=en";
@@ -25,25 +26,22 @@ pub fn Manga(cx: Scope) -> impl IntoView {
     #[cfg(debug_assertions)]
     create_effect(cx, move |_| log!("{:#?}", uuid()));
 
-    let data_display = move || {
-        match data.read(cx) {
+    let data_display = move || match data.read(cx) {
         Some(data) => Some(
             data.data
                 .into_iter()
                 .map(|chapter| {
-                    view! { cx,
-                        <>
-                            <A href=format!("/chapter/{}", chapter.id)>
-                                { chapter.attributes.chapter }" "{ chapter.attributes.title.unwrap_or("".to_owned()) }
-                            </A>
-                            <br />
-                        </>
+                    view! { cx, 
+                        <ChapterListItem props=ChapterListItem {
+                            title: chapter.attributes.title.unwrap_or("".into()),
+                            number: chapter.attributes.chapter,
+                            uuid: chapter.id,
+                        } />
                     }
                 })
                 .collect::<Vec<_>>(),
         ),
         None => None,
-    }
     };
     let fallback = move || view! { cx, <>"Loading..."</> };
 

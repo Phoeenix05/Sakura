@@ -10,7 +10,7 @@ use manga::*;
 #[component]
 fn Home(cx: Scope) -> impl IntoView {
     view! { cx,
-        <A href="manga/e78a489b-6632-4d61-b00b-5206f5b8b22b">"Hello, World"</A>
+        <A href="manga/e78a489b-6632-4d61-b00b-5206f5b8b22b">"Manga"</A>
     }
 }
 

@@ -1,6 +1,7 @@
 use leptos::*;
 
 mod cmd;
+mod components;
 mod routes;
 
 use routes::*;
