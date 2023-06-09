@@ -13,7 +13,9 @@ rust-version = "1.59"
 tauri-build = { version = "1.2.1", features = [] }
 
 [dependencies]
+http-cache-reqwest = "0.10.0"
 reqwest = "0.11.18"
+reqwest-middleware = "0.2.2"
 tauri = { version = "1.2.3", default-features = false, features = ["devtools", "macos-private-api", "wry"] }
 
 [features]
