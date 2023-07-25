@@ -1,9 +1,10 @@
 use leptos::*;
 use leptos_router::*;
-use mangadex_api::json::MangaFeed;
+use mangadex_api::json::types::*;
 
 use crate::cmd::*;
 use crate::components::chapter::*;
+use crate::components::manga::*;
 
 #[derive(Debug, PartialEq, Params)]
 pub struct MangaParams {
@@ -16,27 +17,35 @@ pub fn Manga(cx: Scope) -> impl IntoView {
 
     let uuid = move || params.with(|query| query.as_ref().map(|q| q.id).unwrap_or_default());
 
-    let data = create_resource(cx, uuid, move |uuid| async move {
+    let feed = create_resource(cx, uuid, move |uuid| async move {
         let query = "order[chapter]=desc&limit=500&translatedLanguage[]=en";
         let path = format!("manga/{}/feed?{}", uuid, query);
         let json: MangaFeed = fetch(path).await.unwrap();
+        json
+    });
+    let _info = create_resource(cx, uuid, move |uuid| async move {
+        let path = format!("manga/{}", uuid);
+        let json: Manga = fetch(path).await.unwrap();
         json
     });
 
     #[cfg(debug_assertions)]
     create_effect(cx, move |_| log!("{:#?}", uuid()));
 
-    let data_display = move || match data.read(cx) {
-        Some(data) => Some(
-            data.data
+    let feed_display = move || match feed.read(cx) {
+        Some(feed) => Some(
+            feed.data
                 .into_iter()
                 .map(|chapter| {
-                    view! { cx, 
-                        <ChapterListItem props=ChapterListItem {
-                            title: chapter.attributes.title.unwrap_or("".into()),
-                            number: chapter.attributes.chapter,
-                            uuid: chapter.id,
-                        } />
+                    view! { cx,
+                        <div>
+                            <MangaBanner props=MangaBanner { uuid: uuid() } />
+                            <ChapterListItem props=ChapterListItem {
+                                title: chapter.attributes.title.unwrap_or("".into()),
+                                number: chapter.attributes.chapter,
+                                uuid: chapter.uuid,
+                            } />
+                        </div>
                     }
                 })
                 .collect::<Vec<_>>(),
@@ -47,7 +56,7 @@ pub fn Manga(cx: Scope) -> impl IntoView {
 
     view! { cx,
         <Transition fallback>
-            { data_display }
+            { feed_display }
         </Transition>
     }
 }

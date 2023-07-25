@@ -19,5 +19,10 @@ wasm-bindgen = "0.2.86"
 wasm-bindgen-futures = "0.4.33"
 wasm-logger = "0.2.0"
 
-mangadex-api = { git = "https://github.com/phoeenix05/mangadex-api", version = "0.0.2" }
-uuid = "1.3.3"
+uuid = "1.3.4"
+
+[dependencies.mangadex-api]
+git = "https://github.com/phoeenix05/mangadex-api"
+# path = "../../mangadex-api"
+rev = "b791b74"
+default-features = false
