@@ -1,8 +1,0 @@
-{
-  "emmet.includeLanguages": {
-    "rust": "html"
-  },
-  "files.autoSave": "off",
-  "files.autoSaveDelay": 2000,
-  "rust-analyzer.showUnlinkedFileNotification": false
-}
