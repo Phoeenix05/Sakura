@@ -1,7 +1,7 @@
 {
   "build": {
-    "beforeBuildCommand": "pnpm build",
-    "beforeDevCommand": "pnpm dev",
+    "beforeBuildCommand": "pnpm build:solid",
+    "beforeDevCommand": "pnpm dev:solid",
     "devPath": "http://localhost:3000",
     "distDir": "../dist/public"
   },

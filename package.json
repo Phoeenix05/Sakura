@@ -1,8 +1,10 @@
 {
   "name": "mangadex-reader",
   "scripts": {
-    "dev": "solid-start dev",
-    "build": "solid-start build",
+    "dev": "cargo tauri dev",
+    "build": "cargo tauri build",
+    "dev:solid": "solid-start dev",
+    "build:solid": "solid-start build",
     "start": "solid-start start"
   },
   "type": "module",
