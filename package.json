@@ -2,9 +2,11 @@
   "name": "mangadex-reader",
   "scripts": {
     "dev": "cargo tauri dev",
-    "build": "cargo tauri build",
+    "build:release": "cargo tauri build",
+    "build:debug": "cargo tauri build --debug",
     "dev:solid": "solid-start dev",
     "build:solid": "solid-start build",
+    "graph": "cargo flamegraph --root",
     "start": "solid-start start"
   },
   "type": "module",

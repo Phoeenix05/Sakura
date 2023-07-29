@@ -7,9 +7,10 @@
   },
   "package": {
     "productName": "mangadex-reader",
-    "version": "0.1.0"
+    "version": "0.0.1-dev"
   },
   "tauri": {
+    "macOSPrivateApi": true,
     "allowlist": {
       "all": false
     },
