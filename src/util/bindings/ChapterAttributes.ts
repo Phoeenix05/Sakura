@@ -2,4 +2,4 @@
 import type { Language } from "./Language";
 import type { MangaDexDateTime } from "./MangaDexDateTime";
 
-export interface ChapterAttributes { title: string, volume: string | null, chapter: string | null, pages: number, translatedLanguage: Language, uploader?: Uuid, externalUrl: Url, version: number, createdAt: MangaDexDateTime, updatedAt: MangaDexDateTime | null, publishAt: MangaDexDateTime, readableAt: MangaDexDateTime, }
+export interface ChapterAttributes { title: string, volume: string | null, chapter: string | null, pages: number, translatedLanguage: Language, uploader?: string, externalUrl: string, version: number, createdAt: MangaDexDateTime, updatedAt: MangaDexDateTime | null, publishAt: MangaDexDateTime, readableAt: MangaDexDateTime, }

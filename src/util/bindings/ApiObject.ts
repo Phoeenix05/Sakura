@@ -2,4 +2,4 @@
 import type { Relationship } from "./Relationship";
 import type { RelationshipType } from "./RelationshipType";
 
-export interface ApiObject<A, T = RelationshipType> { id: Uuid, type: T, attributes: A, relationships: Array<Relationship>, }
+export interface ApiObject<A, T = RelationshipType> { id: string, type: T, attributes: A, relationships: Array<Relationship>, }

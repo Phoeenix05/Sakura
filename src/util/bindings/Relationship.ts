@@ -3,4 +3,4 @@ import type { MangaRelation } from "./MangaRelation";
 import type { RelatedAttributes } from "./RelatedAttributes";
 import type { RelationshipType } from "./RelationshipType";
 
-export interface Relationship { id: Uuid, type: RelationshipType, related?: MangaRelation, attributes?: RelatedAttributes, }
+export interface Relationship { id: string, type: RelationshipType, related?: MangaRelation, attributes?: RelatedAttributes, }

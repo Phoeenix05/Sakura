@@ -4,4 +4,4 @@ import type { MangaUpdates } from "./MangaUpdates";
 import type { MyAnimeList } from "./MyAnimeList";
 import type { NovelUpdates } from "./NovelUpdates";
 
-export interface MangaLinks { amz?: Url, al?: string, ap?: string, bw?: BookWalker, cdj?: string, ebj?: Url, engtl?: string, kt?: string, mu?: MangaUpdates, mal?: MyAnimeList, nu?: NovelUpdates, raw?: Url, }
+export interface MangaLinks { amz?: string, al?: string, ap?: string, bw?: BookWalker, cdj?: string, ebj?: string, engtl?: string, kt?: string, mu?: MangaUpdates, mal?: MyAnimeList, nu?: NovelUpdates, raw?: string, }

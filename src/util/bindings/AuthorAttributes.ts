@@ -2,4 +2,4 @@
 import type { Language } from "./Language";
 import type { MangaDexDateTime } from "./MangaDexDateTime";
 
-export interface AuthorAttributes { name: string, imageUrl: string | null, biography: Record, twitter: Url, pixiv: Url, melonBook: Url, fanBox: Url, booth: Url, nicoVideo: Url, skeb: Url, fantia: Url, tumblr: Url, youtube: Url, weibo: Url, naver: Url, website: Url, version: number, createdAt: MangaDexDateTime, updatedAt: MangaDexDateTime | null, }
+export interface AuthorAttributes { name: string, imageUrl: string | null, biography: Record, twitter: string, pixiv: string, melonBook: string, fanBox: string, booth: string, nicoVideo: string, skeb: string, fantia: string, tumblr: string, youtube: string, weibo: string, naver: string, website: string, version: number, createdAt: MangaDexDateTime, updatedAt: MangaDexDateTime | null, }

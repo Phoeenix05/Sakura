@@ -9,7 +9,7 @@ mkdir -p $BINDINGS_DIR
 generate_bindings() {
     cd ${1:?"Path must be specified"}
     cargo test
-    mv bindings/*.ts $BINDINGS_DIR/
+    cp bindings/*.ts $BINDINGS_DIR/
 }
 
 generate_bindings $API_DIR/mangadex-api-schema
