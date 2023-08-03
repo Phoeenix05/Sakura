@@ -1,33 +1,48 @@
-<p align="center"><img src="https://socialify.git.ci/phoeenix05/mangadex-reader/image?description=1&amp;descriptionEditable=A%203rd%20party%20desktop%20client%20for%20MangaDex.org&amp;font=Source%20Code%20Pro&amp;forks=1&amp;issues=1&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Circuit%20Board&amp;pulls=1&amp;stargazers=1&amp;theme=Light" alt="project-image"></p>
+<p align="center">
+    <img src="https://socialify.git.ci/phoeenix05/mangadex-reader/image?issues=1&language=1&name=1&owner=1&pattern=Circuit%20Board&stargazers=1&theme=Auto"/>
+</p>
 
-<br />
-<h2>🧐 Features</h2>
+## 1. Introduction
+This is the project that I'm currently working on in my freetime. The aim of this application / project is to provide a desktop application to read mangas. 
 
-Here're some of the project's best features:
+The UI for the application won't be looking that good at the start but I will try to improve it bit by bit overtime.
 
-*   Download chapters for offline reading
+## 2. Technologies used and reasoning
+![Static Badge](https://img.shields.io/badge/tauri-333333?style=for-the-badge&logo=tauri&link=https%3A%2F%2Ftauri.app)
+![Static Badge](https://img.shields.io/badge/solidjs-333333?style=for-the-badge&logo=solid&logoColor=rgb(95%2C%20136%2C%20195)&link=https%3A%2F%2Fsolidjs.com)
+![Static Badge](https://img.shields.io/badge/pocketbase-333333?style=for-the-badge&logo=pocketbase&logoColor=rgb(95%2C%20136%2C%20195)&link=https%3A%2F%2Fpocketbase.io)
 
-<br />
-<h2>🛠️ Installation Steps:</h2>
-<h3>APPLICATION ISN'T PRODUCTION READY</h3>
-<p>NOTE: For now you'll need download and build</p>
+- **Tauri** because it is much more lightweight than **electron**.
+- **SolidJS** because it is faster than **React**, in my opinion atleast.
+- **Pocketbase**. I was trying to figure out how to easily store data locally while it still being easy to search through for something specific. I looked at Redis and other client side caching libraries, but couldn't find anything that provided what I wanted. I think **Pocketbase** is the perfect choice here as it has small memory footprint, I can easily query and search data, cross platform. Also as I might want to add a browser extension to add stuff to reading list I needed some way to store that data so that it would be accessible from the application.
 
-<br />
-<p>1. Download repository</p>
+## 3. Installation / Development
 
-```
-git clone https://github.com/Phoeenix05/mangadex-reader
+- **Step 1**: Clone the repository
+```zsh
+git clone https://github.com/phoeenix05/mangadex-reader
 # or
-gh repo clone Phoeenix05/mangadex-reader
+gh repo clone phoeenix05/mangadex-reader
 ```
 
-<p>2. Build the project</p>
-
+- **Step 2**: Running the project
+```zsh 
+pnpm dev
+npm run dev
+yarn run dev
 ```
-cargo tauri build --release
+
+- **Step 3**: Building the project
+```zsh 
+pnpm build:release
+npm run build:release
+yarn run build:release
+# or
+cargo tauri build
 ```
 
-<br />
-<h2>🛡️ License:</h2>
+## 4. Contribution guidelines
+None. If you want to contribute just fork the repository make your changes and create a pull request. If there are things I would like to change in that pull request then I'll merge it and change them.
 
-This project is licensed under the MIT License
+## 5. Licensing
+This project is licensed under the MIT license
