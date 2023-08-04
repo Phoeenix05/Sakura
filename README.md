@@ -65,9 +65,9 @@ Install [Pocketbase's](https://pocketbase.io/) latest version from [GitHub](http
 
 - **Step 4.5**: Building the project
 ```zsh 
-pnpm build:release
-npm run build:release
-yarn run build:release
+pnpm build
+npm run build
+yarn run build
 # or
 cargo tauri build
 ```
