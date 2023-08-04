@@ -9,6 +9,7 @@ The UI for the application won't be looking that good at the start but I will tr
 
 ## 2. Prerequisites
 > cargo, rust, pnpm, pocketbase
+
 MacOS (this works on linux too if you use homebrew)
 ```zsh
 brew install cargo pnpm
@@ -59,6 +60,7 @@ yarn run dev
 ```
 
 - **Step 4**: Building the project
+
 Install [Pocketbase's](https://pocketbase.io/) latest version from [GitHub](https://github.com/pocketbase/pocketbase/releases/latest) into `src-tauri` and make sure to edit the `tauri.<your platform>.conf.json` resources list to include the pocketbase executable.
 
 - **Step 4.5**: Building the project
@@ -74,4 +76,5 @@ cargo tauri build
 None. If you want to contribute just fork the repository make your changes and create a pull request. If there are things I would like to change in that pull request then I'll merge it and change them.
 
 ## 6. Licensing
-This project is licensed under the MIT license
+I am completely free and licensed under the [MIT license](https://github.com/Phoeenix05/mangadex-reader/blob/main/LICENSE). But if you like, you can feed me with a star on [GitHub](https://github.com/Phoeenix05/mangadex-reader).
+
