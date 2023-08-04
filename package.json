@@ -2,14 +2,12 @@
   "name": "mangadex-reader",
   "scripts": {
     "dev": "cargo tauri dev",
-    "build:release": "cargo tauri build",
-    "build:debug": "cargo tauri build --debug",
+    "build": "cargo tauri build",
     "dev:solid": "solid-start dev",
     "build:solid": "solid-start build",
     "start": "solid-start start",
     "graph": "cargo flamegraph --root",
-    "bindings": "./generate-bindings.sh",
-    "lint": "echo lint"
+    "bindings": "./generate-bindings.sh"
   },
   "type": "module",
   "devDependencies": {

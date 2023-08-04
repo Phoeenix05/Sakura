@@ -1,0 +1,13 @@
+{
+    "tauri": {
+        "macOSPrivateApi": true,
+        "bundle": {
+            "identifier": "io.github.phoeenix05.mangadex-reader",
+            "resources": [
+                "../pocketbase/pb_migrations/",
+                "../pocketbase/pb_data/types.d.ts",
+                "./pocketbase_0.17.1_windows_amd64/pocketbase.exe"
+            ]
+        }
+    }
+}

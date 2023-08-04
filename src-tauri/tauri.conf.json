@@ -10,9 +10,13 @@
     "version": "0.0.1-dev"
   },
   "tauri": {
-    "macOSPrivateApi": true,
     "allowlist": {
-      "all": false
+      "all": false,
+      "fs": {
+        "scope": [
+          "$RESOURCES/*"
+        ]
+      }
     },
     "bundle": {
       "active": true,
