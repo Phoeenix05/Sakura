@@ -3,11 +3,16 @@
         "macOSPrivateApi": true,
         "bundle": {
             "identifier": "io.github.phoeenix05.mangadex-reader",
-            "resources": [
-                "../pocketbase/pb_migrations/",
-                "../pocketbase/pb_data/types.d.ts",
-                "./pocketbase_0.17.1_darwin_arm64/pocketbase"
-            ]
-        }
+            "resources": []
+        },
+        "windows": [
+            {
+              "fullscreen": false,
+              "height": 800,
+              "resizable": true,
+              "title": "mangadex-reader",
+              "width": 1280
+            }
+          ]
     }
 }

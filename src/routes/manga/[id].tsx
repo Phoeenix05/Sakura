@@ -1,32 +1,25 @@
 import { createResource } from "solid-js";
 import { useParams } from "solid-start";
-import ChapterCard from "~/components/ChapterCard";
-import { ApiObject } from "~/util/bindings/ApiObject";
-import { ChapterAttributes } from "~/util/bindings/ChapterAttributes";
-import { MangaAttributes } from "~/util/bindings/MangaAttributes";
-import { ID } from "~/util/props";
-import { fetch_resource } from "~/util/resources";
+import { get_manga, get_manga_feed } from "~/util/data";
 
 export default function MangaId() {
-    const { id } = useParams<ID>();
-    const [info] = createResource(
-        () => id,
-        async (id: string) =>
-            await fetch_resource<ApiObject<MangaAttributes>>(`https://api.mangadex.org/manga/${id}`)
-    );
-    const [feed] = createResource(
-        () => id,
-        async (id: string) =>
-            await fetch_resource<ApiObject<ChapterAttributes>[]>(`https://api.mangadex.org/manga/${id}/feed?limit=500&translatedLanguage[]=en`)
-    );
+    const { id } = useParams<{ id: string }>();
+    const [info] = createResource(id, async (id: string) => {
+        const data = await get_manga(id)
+        return data
+    });
+    const [feed, { refetch: refetch_feed }] = createResource(id, async (id: string) => {
+        const data = await get_manga_feed(id)
+        return data
+    });
 
     return (
         <main>
-            {/* {info.loading ? "Loading (Manga info)..." : <pre>{JSON.stringify(info()?.data.attributes.title, null, 2)}</pre>} */}
-            {/* {feed.loading ? "Loading (Manga feed)..." : <pre>{JSON.stringify(feed()?.data.map(e => e.id), null, 2)}</pre>} */}
-            {
-                feed.loading ? "Loading (Manga feed)..." : feed()?.data.map(e => <ChapterCard data={e} />)
-            }
+            <button onClick={refetch_feed}>refresh</button>
+            {info.loading && <span>Loading...</span>}
+            {!info.loading && <pre>{JSON.stringify(info(), null, 2)}</pre>}
+            {feed.loading && <span>Loading...</span>}
+            {!feed.loading && <pre>{JSON.stringify(feed(), null, 2)}</pre>}
         </main>
     )
 }

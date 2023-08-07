@@ -17,6 +17,9 @@ dependencies:
   solid-start:
     specifier: ^0.2.29
     version: 0.2.29(@solidjs/meta@0.28.2)(@solidjs/router@0.8.2)(solid-js@1.7.8)(solid-start-node@0.2.19)(vite@4.4.6)
+  tauri-plugin-sql-api:
+    specifier: github:tauri-apps/tauri-plugin-sql#v1
+    version: github.com/tauri-apps/tauri-plugin-sql/b8fd19dac907cc8c3d78681cd4803a326b8b861e
   undici:
     specifier: ^5.15.1
     version: 5.15.1
@@ -40,6 +43,9 @@ devDependencies:
   typescript:
     specifier: ^4.9.4
     version: 4.9.4
+  valibot:
+    specifier: ^0.11.0
+    version: 0.11.0
   vite:
     specifier: ^4.4.6
     version: 4.4.6
@@ -1678,7 +1684,6 @@ packages:
   /@tauri-apps/api@1.4.0:
     resolution: {integrity: sha512-Jd6HPoTM1PZSFIzq7FB8VmMu3qSSyo/3lSwLpoapW+lQ41CL5Dow2KryLg+gyazA/58DRWI9vu/XpEeHK4uMdw==}
     engines: {node: '>= 14.6.0', npm: '>= 6.6.0', yarn: '>= 1.19.1'}
-    dev: true
 
   /@types/babel__core@7.20.1:
     resolution: {integrity: sha512-aACu/U/omhdk15O4Nfb+fHgH/z3QsfQzpnvRZhYhThms83ZnAOZz7zZAWO7mn2yyNQaA4xTO8GLK3uqFU4bYYw==}
@@ -3267,6 +3272,10 @@ packages:
     resolution: {integrity: sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==}
     engines: {node: '>= 0.4.0'}
 
+  /valibot@0.11.0:
+    resolution: {integrity: sha512-qF54ZhrrME9jsicNOw16G7+4JIM2hoT5lyybCJqK7AyvU7/q7/kkmf6xaPc+GigF+GAO66ZWB12ZbFV5RyiQIA==}
+    dev: true
+
   /validate-html-nesting@1.2.2:
     resolution: {integrity: sha512-hGdgQozCsQJMyfK5urgFcWEqsSSrK63Awe0t/IMR0bZ0QMtnuaiHzThW81guu3qx9abLi99NEuiaN6P9gVYsNg==}
 
@@ -3417,3 +3426,11 @@ packages:
       string-width: 4.2.3
       y18n: 5.0.8
       yargs-parser: 21.1.1
+
+  github.com/tauri-apps/tauri-plugin-sql/b8fd19dac907cc8c3d78681cd4803a326b8b861e:
+    resolution: {tarball: https://codeload.github.com/tauri-apps/tauri-plugin-sql/tar.gz/b8fd19dac907cc8c3d78681cd4803a326b8b861e}
+    name: tauri-plugin-sql-api
+    version: 0.0.0
+    dependencies:
+      '@tauri-apps/api': 1.4.0
+    dev: false

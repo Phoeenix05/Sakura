@@ -12,6 +12,12 @@
   "tauri": {
     "allowlist": {
       "all": false,
+      "http": {
+        "request": true,
+        "scope": [
+          "https://*.mangadex.org/*"
+        ]
+      },
       "fs": {
         "scope": [
           "$RESOURCES/*"
@@ -56,15 +62,6 @@
     },
     "updater": {
       "active": false
-    },
-    "windows": [
-      {
-        "fullscreen": false,
-        "height": 600,
-        "resizable": true,
-        "title": "mangadex-reader",
-        "width": 800
-      }
-    ]
+    }
   }
 }

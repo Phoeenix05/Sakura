@@ -1,6 +1,0 @@
-# /pb_migrations
-/*.dev
-
-# This ignores the *.db-wal and *.db-shm files
-*.db-*[a-zA-Z]
-*.db

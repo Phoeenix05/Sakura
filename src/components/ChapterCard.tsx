@@ -1,9 +1,7 @@
 import { A } from "solid-start"
-import { ApiObject } from "~/util/bindings/ApiObject"
-import { ChapterAttributes } from "~/util/bindings/ChapterAttributes"
 
 export type Props = {
-    data: ApiObject<ChapterAttributes>
+    data: any
 }
 
 export default function ChapterCard({ data }: Props) {
