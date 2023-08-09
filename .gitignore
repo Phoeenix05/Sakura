@@ -1,31 +1,23 @@
-
-dist
-.solid
+# Nuxt dev/build outputs
 .output
-.vercel
-.netlify
-netlify
+.nuxt
+.nitro
+.cache
+dist
 
-# Environment
-.env
-.env*.local
+# Node dependencies
+node_modules
 
-# dependencies
-/node_modules
+# Logs
+logs
+*.log
 
-# IDEs and editors
-/.idea
-.project
-.classpath
-*.launch
-.settings/
-
-# Temp
-gitignore
-
-# System Files
+# Misc
 .DS_Store
-Thumbs.db
+.fleet
+.idea
 
-flamegraph.svg
-/scripts
+# Local env files
+.env
+.env.*
+!.env.example

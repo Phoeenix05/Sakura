@@ -1,28 +1,17 @@
 {
   "build": {
-    "beforeBuildCommand": "pnpm build:solid",
-    "beforeDevCommand": "pnpm dev:solid",
+    "beforeBuildCommand": "pnpm generate",
+    "beforeDevCommand": "pnpm dev",
     "devPath": "http://localhost:3000",
-    "distDir": "../dist/public"
+    "distDir": "../dist"
   },
   "package": {
-    "productName": "mangadex-reader",
-    "version": "0.0.1-dev"
+    "productName": "nuxt-app",
+    "version": "0.1.0"
   },
   "tauri": {
     "allowlist": {
-      "all": false,
-      "http": {
-        "request": true,
-        "scope": [
-          "https://*.mangadex.org/*"
-        ]
-      },
-      "fs": {
-        "scope": [
-          "$RESOURCES/*"
-        ]
-      }
+      "all": false
     },
     "bundle": {
       "active": true,
@@ -62,6 +51,15 @@
     },
     "updater": {
       "active": false
-    }
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "height": 600,
+        "resizable": true,
+        "title": "nuxt-app",
+        "width": 800
+      }
+    ]
   }
 }
