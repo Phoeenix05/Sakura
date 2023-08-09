@@ -3,7 +3,7 @@ import { parse } from "valibot"
 import { ApiResponse } from "~/schemas/mangadex"
 import { Manga, MangaFeed, MangaFeedSchema, MangaSchema } from "~/schemas/mangadex/manga"
 
-async function get_path(path: string): Promise<any | null> {
+async function get_path(path: string, refresh: boolean = false): Promise<any | null> {
     const client = await getClient()
     const response = await client.get<ApiResponse>(`https://api.mangadex.org/${path}`, {
         timeout: 15,
@@ -21,9 +21,14 @@ export async function get_manga(id: string): Promise<Manga> {
     return data
 }
 
-export async function get_manga_feed(id: string): Promise<MangaFeed> {
-    const res = await get_path(`manga/${id}/feed`)
-    console.log(res)
-    const data = parse(MangaFeedSchema, res)
+export async function get_manga_feed(id: string, validate: boolean = true, refresh: boolean = false): Promise<MangaFeed> {
+    // For some reason setting query parameters will 
+    // make the data invalid according to valibot
+    // const res1 = await get_path(`manga/${id}/feed?limit=500&translatedLanguage[]=en`, refresh)
+    const res = await get_path(`manga/${id}/feed?limit=500&translatedLanguage[]=en`, refresh)
+    if (validate) {
+        const data = parse(MangaFeedSchema, res)
+        return data
+    }
     return res
 }

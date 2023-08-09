@@ -1,21 +1,22 @@
-import { any, enumType, number, object, optional, string, type Output } from "valibot";
+import { any, enumType, number, object, optional, string, type Output, union } from "valibot";
 
 export const ChapterSchema = object({
     id: string(),
     type: enumType(["chapter"]),
     attributes: object({
-        // title: any(),
-        // volume: string(),
-        // chapter: string(),
-        // pages: number(),
-        // translatedLanguage: string(),
+        title: optional(any()),
+        volume: string(),
+        chapter: string(),
+        pages: number(),
+        translatedLanguage: string(),
+        // This field doesn't seem to exist in the data returned from MangaDex API
         // uploader: string(),
-        // externalUrl: optional(string()),
-        // version: number(),
-        // createdAt: string(),
-        // updatedAt: string(),
-        // publishAt: string(),
-        // readableAt: string()
+        // externalUrl: string(), // Throws an error
+        version: number(),
+        createdAt: string(),
+        updatedAt: string(),
+        publishAt: string(),
+        readableAt: string()
     }),
     relationships: any(),
 })
