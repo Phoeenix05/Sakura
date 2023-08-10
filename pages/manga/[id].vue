@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import { useMangaStore } from "@/stores/manga";
 import { fetch } from "@tauri-apps/api/http";
 
 const { id } = useRoute().params
+const manga = useMangaStore()
+manga.$patch({ manga_id: id })
 
 const { data: data, pending: data_pending, error: data_error, refresh: refresh_data } = useAsyncData(async () => {
     const res = await fetch(`https://api.mangadex.org/manga/${id}`)
