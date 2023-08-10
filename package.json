@@ -1,0 +1,21 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@headlessui/vue": "^1.7.15",
+    "@nuxt/devtools": "latest",
+    "@nuxtjs/i18n": "8.0.0-rc.2",
+    "@pinia/nuxt": "^0.4.11",
+    "@tauri-apps/api": "^1.4.0",
+    "@types/node": "^18.17.3",
+    "nuxt": "^3.6.5",
+    "tauri-plugin-sql-api": "github:tauri-apps/tauri-plugin-sql#v1"
+  }
+}

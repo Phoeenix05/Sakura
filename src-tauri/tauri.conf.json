@@ -1,23 +1,29 @@
 {
   "build": {
-    "beforeBuildCommand": "cd frontend && trunk build --release",
-    "beforeDevCommand": "cd frontend && trunk serve",
-    "devPath": "http://localhost:8080",
-    "distDir": "../frontend/dist/",
-    "withGlobalTauri": true
+    "beforeBuildCommand": "pnpm generate",
+    "beforeDevCommand": "pnpm dev",
+    "devPath": "http://localhost:3000",
+    "distDir": "../dist"
   },
   "package": {
-    "productName": "MangaDex Reader",
+    "productName": "nuxt-app",
     "version": "0.1.0"
   },
   "tauri": {
     "allowlist": {
-      "all": false
+      "all": false,
+      "http": {
+        "all": false,
+        "request": true,
+        "scope": [
+          "https://*.mangadex.org/*"
+        ]
+      }
     },
     "bundle": {
       "active": true,
-      "category": "Entertainment",
-      "copyright": "MIT License",
+      "category": "DeveloperTool",
+      "copyright": "",
       "deb": {
         "depends": []
       },
@@ -56,10 +62,10 @@
     "windows": [
       {
         "fullscreen": false,
+        "height": 600,
         "resizable": true,
-        "title": "MangaDex Reader",
-        "width": 1280,
-        "height": 800
+        "title": "nuxt-app",
+        "width": 800
       }
     ]
   }
