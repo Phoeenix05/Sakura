@@ -1,21 +1,30 @@
 <script setup lang="ts">
 import { fetch } from "@tauri-apps/api/http";
 
-const route = useRoute()
+const { id } = useRoute().params
 
-const { data, pending, error, refresh } = useAsyncData('', async () => {
-    const res = await fetch(`https://api.mangadex.org/manga/${route.params.id}`)
+const { data: data, pending: data_pending, error: data_error, refresh: refresh_data } = useAsyncData(async () => {
+    const res = await fetch(`https://api.mangadex.org/manga/${id}`)
+    return res.data as any
+})
+const { data: feed, pending: feed_pending, error: feed_error, refresh: refresh_feed } = useAsyncData(async () => {
+    const res = await fetch(`https://api.mangadex.org/manga/${id}/feed?translatedLanguage[]=en&order[chapter]=desc`)
     return res.data as any
 })
 </script>
 
 <template>
     <div>
-        {{ route.params.query }}
-        <button @click="refresh()">refresh</button>
-        <div v-if="!pending && !error">
-            <pre>{{ JSON.stringify(data, null, 2) }}</pre>
+        {{ id }}
+        <button @click="refresh_feed()">refresh</button>
+        <div v-if="!feed_pending && !feed_error" v-for="chapter in feed.data">
+            <template v-if="chapter.attributes.title">
+                <NuxtLink :to="'/chapter/' + chapter.id">{{ chapter.attributes.title }}</NuxtLink>
+            </template>
+            <template v-else>
+                <NuxtLink :to="'/chapter/' + chapter.id">null</NuxtLink>
+            </template>
         </div>
-        <div v-if="error">An error occurred while loading data</div>
+        <div v-else>An error occurred while loading data</div>
     </div>
 </template>
