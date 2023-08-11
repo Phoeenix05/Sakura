@@ -22,8 +22,8 @@
     },
     "bundle": {
       "active": true,
-      "category": "DeveloperTool",
-      "copyright": "",
+      "category": "Entertainment",
+      "copyright": "Copyright (c) 2023 Anton Fredriksson",
       "deb": {
         "depends": []
       },
@@ -63,9 +63,11 @@
       {
         "fullscreen": false,
         "width": 1280,
-        "height": 800,
+        "height": 880,
+        "minWidth": 800,
+        "minHeight": 550,
         "resizable": true,
-        "title": "nuxt-app"
+        "title": "Mangadex Reader"
       }
     ]
   }
