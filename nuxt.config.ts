@@ -13,5 +13,6 @@ export default defineNuxtConfig({
   ],
   imports: {
     dirs: ['stores']
-  }
+  },
+  srcDir: './src'
 })
