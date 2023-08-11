@@ -4,12 +4,9 @@ export default defineNuxtConfig({
   ssr: false,
   // modules: ['@nuxthq/ui', '@pinia/nuxt'],
   modules: [
-    [
-      '@nuxtjs/i18n',
-      { autoImports: ['defineStore', 'acceptHMRUpdate'] }
-    ],
+    ['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'] }],
     '@nuxtjs/tailwindcss',
-    '@pinia/nuxt'
+    '@nuxtjs/i18n',
   ],
   imports: {
     dirs: ['stores']
