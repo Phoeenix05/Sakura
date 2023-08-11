@@ -6,7 +6,7 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "nuxt-app",
+    "productName": "Mangadex Reader",
     "version": "0.1.0"
   },
   "tauri": {
@@ -62,10 +62,10 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 600,
+        "width": 1280,
+        "height": 800,
         "resizable": true,
-        "title": "nuxt-app",
-        "width": 800
+        "title": "nuxt-app"
       }
     ]
   }

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const query = ref("")
+const query = ref("tensura")
 </script>
 
 <template>
