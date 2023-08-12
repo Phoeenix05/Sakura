@@ -5,7 +5,7 @@
 </picture>
 
 ## Introduction
-This is a desktop application for reading mangas, manhwas and manhuas from [Mangadex](https://mangadex.org). It can also be used to track different mangas across different sites. 
+Sakura or formerly known as Mangadex Reader is a desktop application for reading mangas, manhwas and manhuas from [Mangadex](https://mangadex.org). It can also be used to track different mangas across different sites. 
 
 The UI for the application won't be looking that good for the time being as this is a project that I'm currently working on in my freetime when I don't have school but I will try to improve it bit by bit overtime.
 
