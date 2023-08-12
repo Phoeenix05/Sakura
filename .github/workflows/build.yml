@@ -2,8 +2,11 @@ name: Build and Release
 
 on:
   push:
-    branches:
-    - sakura
+    tags:
+      - 'v*[0-9].*[0-9].*[0-9]'
+
+env:
+  CARGO_TERM_COLOR: always
 
 jobs:
   build:
@@ -33,14 +36,17 @@ jobs:
           toolchain: nightly
           override: true
 
-      - name: Cargo Target Cache
+      - name: Cache Rust dependencies
         uses: actions/cache@v1
         with:
-          path: ./target
-          key: ${{ runner.os }}-${{ hashFiles('./Cargo.lock') }}
+          path: | 
+            ~/.cargo/registry
+            ~/.cargo/git
+            ./src-tauri/target
+          key: cargo-${{ runner.os }}-${{ hashFiles('**/Cargo.lock') }}
 
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build app
+      - name: Build
         run: pnpm tauri build
