@@ -6,25 +6,35 @@ on:
     - sakura
 
 jobs:
-  bundle:
-    # strategy:
-    #   matrix:
-    #     os: [macos-latest, windows-latest]
-    # runs-on: ${{ matrix.os }}
-    runs-on: ubuntu-latest
+  build:
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest]
+        node-version: [20]
+        pnpm-version: [8]
+    
+    runs-on: ${{ matrix.os }}
+    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: ${{ matrix.pnpm-version }}
       
-      - name: Install latest rust nightly
+      - name: Use Node.js 20
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      
+      - name: Setup rust
         uses: actions-rs/toolchain@v1
         with:
-          profile: minimal
           toolchain: nightly
           override: true
       
-      - name: Install Tauri CLI
-        run: cargo install tauri-cli --force
-      
-      - name: Build app bundle
-        run: cargo tauri build
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build app
+        run: pnpm tauri build
