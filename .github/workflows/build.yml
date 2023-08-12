@@ -6,11 +6,12 @@ on:
     - sakura
 
 jobs:
-  build_releases:
-    strategy:
-      matrix:
-        os: [macos-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+  bundle:
+    # strategy:
+    #   matrix:
+    #     os: [macos-latest, windows-latest]
+    # runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -21,7 +22,9 @@ jobs:
           profile: minimal
           toolchain: nightly
           override: true
-          components: tauri-cli
+      
+      - name: Install Tauri CLI
+        run: cargo install tauri-cli --force
       
       - name: Build app bundle
         run: cargo tauri build
