@@ -19,5 +19,8 @@
     "@types/node": "^20.4.9",
     "nuxt": "^3.6.5",
     "tauri-plugin-sql-api": "github:tauri-apps/tauri-plugin-sql#v1"
+  },
+  "dependencies": {
+    "@tauri-apps/cli": "^1.4.0"
   }
 }
