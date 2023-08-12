@@ -3,7 +3,7 @@ name: Build and Release
 on:
   push:
     branches:
-    - sakura
+    - release
 
 jobs:
   build:
@@ -20,19 +20,25 @@ jobs:
       - uses: pnpm/action-setup@v2
         with:
           version: ${{ matrix.pnpm-version }}
-      
-      - name: Use Node.js 20
+
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
-      
+
       - name: Setup rust
         uses: actions-rs/toolchain@v1
         with:
           toolchain: nightly
           override: true
-      
+
+      - name: Cargo Target Cache
+        uses: actions/cache@v1
+        with:
+          path: ./target
+          key: ${{ runner.os }}-${{ hashFiles('./Cargo.lock') }}
+
       - name: Install dependencies
         run: pnpm install
 
