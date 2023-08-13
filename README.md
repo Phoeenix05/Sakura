@@ -16,20 +16,26 @@ The UI for the application won't be looking that good for the time being as this
   </a>
 </p>
 
-![Static Badge](https://img.shields.io/badge/tauri-333333?style=for-the-badge&logo=tauri&link=https%3A%2F%2Ftauri.app)
 ![Static Badge](https://img.shields.io/badge/NuxtJS-%2300DC82?style=for-the-badge&logo=nuxtjs3&link=https%3A%2F%2Fnuxt.com%2F)
-![Static Badge](https://img.shields.io/badge/sqlite3-white?style=for-the-badge&logo=sqlite&color=333333)
-![Static Badge](https://img.shields.io/badge/Supabase-2E2E2E?style=for-the-badge&logo=supabase&logoColor=%2340CF8E&link=https%3A%2F%2Fsupabase.com%2F)
+![Static Badge](https://img.shields.io/badge/tauri-1C1C1C?style=for-the-badge&logo=tauri&logoColor=FFD000&link=https%3A%2F%2Ftauri.app)
 
+> ![Static Badge](https://img.shields.io/badge/surrealdb-1C1C1C?style=for-the-badge&logo=surrealdb&logoColor=D401CD&link=https%3A%2F%2Fsurrealdb.com%2F)
 
 ## Installation
-Right now you'll need to build the project yourself. You can check the [releases](https://github.com/Phoeenix05/sakura/releases) for application bundle for your platform.
+I'll try to get A workflow for bundling the app working fot the beta release but for now you'll need to build the project yourself. You can check the [releases](https://github.com/Phoeenix05/sakura/releases) for application bundle for your platform.
 
 ## Development
 
 #### Clone the repository
 ```zsh
 git clone https://github.com/phoeenix05/sakura
+```
+
+#### Installing dependencies
+```zsh
+pnpm install
+yarn install
+npm install
 ```
 
 #### Running the project
@@ -48,9 +54,11 @@ npx tauri build
 cargo tauri build
 ```
 
+## Credits
+Credits to [Mangadex](https://mangadex.org) for providing the ability to read chapters.
+
 ## Contribution guidelines
 None. If you want to contribute just fork the repository make your changes and create a pull request. If there are things I would like to change in that pull request then I'll change them and merge the PR.
 
 ## Licensing
 I am completely free and licensed under the [MIT license](https://github.com/Phoeenix05/sakura/blob/main/LICENSE). But if you like, you can feed me with a star on [GitHub](https://github.com/Phoeenix05/sakura).
-
