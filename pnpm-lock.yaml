@@ -32,14 +32,11 @@ devDependencies:
     specifier: ^1.4.0
     version: 1.4.0
   '@types/node':
-    specifier: ^20.4.9
-    version: 20.4.9
+    specifier: ^20.5.0
+    version: 20.5.0
   nuxt:
     specifier: ^3.6.5
-    version: 3.6.5(@types/node@20.4.9)
-  tauri-plugin-sql-api:
-    specifier: github:tauri-apps/tauri-plugin-sql#v1
-    version: github.com/tauri-apps/tauri-plugin-sql/b8fd19dac907cc8c3d78681cd4803a326b8b861e
+    version: 3.6.5(@types/node@20.5.0)
 
 packages:
 
@@ -1174,8 +1171,8 @@ packages:
       '@nuxt/kit': 3.6.5
       '@nuxt/schema': 3.6.5
       execa: 7.2.0
-      nuxt: 3.6.5(@types/node@20.4.9)
-      vite: 4.4.9(@types/node@20.4.9)
+      nuxt: 3.6.5(@types/node@20.5.0)
+      vite: 4.4.9(@types/node@20.5.0)
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -1224,7 +1221,7 @@ packages:
       launch-editor: 2.6.0
       local-pkg: 0.4.3
       magicast: 0.2.10
-      nuxt: 3.6.5(@types/node@20.4.9)
+      nuxt: 3.6.5(@types/node@20.5.0)
       nypm: 0.2.2
       pacote: 15.2.0
       pathe: 1.1.1
@@ -1235,7 +1232,7 @@ packages:
       semver: 7.5.4
       sirv: 2.0.3
       unimport: 3.1.3(rollup@3.28.0)
-      vite: 4.4.9(@types/node@20.4.9)
+      vite: 4.4.9(@types/node@20.5.0)
       vite-plugin-inspect: 0.7.35(@nuxt/kit@3.6.5)(vite@4.4.9)
       vite-plugin-vue-inspector: 3.6.0(vite@4.4.9)
       wait-on: 7.0.1
@@ -1341,7 +1338,7 @@ packages:
     resolution: {integrity: sha512-5gc02Pu1HycOVUWJ8aYsWeeXcSTPe8iX8+KIrhyEtEoOSkY0eMBuo0ssljB8wALuEmepv31DlYe5gpiRwkjESA==}
     dev: true
 
-  /@nuxt/vite-builder@3.6.5(@types/node@20.4.9)(vue@3.3.4):
+  /@nuxt/vite-builder@3.6.5(@types/node@20.5.0)(vue@3.3.4):
     resolution: {integrity: sha512-pwSpt257ApCp3XWUs8vrC7X9QHeHUv5PbbIR3+5w0n5f95XPNOQWDJa2fTPX/H6oaRJCPYAsBPqiQhQ7qW/NZQ==}
     engines: {node: ^14.18.0 || >=16.10.0}
     peerDependencies:
@@ -1378,8 +1375,8 @@ packages:
       strip-literal: 1.3.0
       ufo: 1.2.0
       unplugin: 1.4.0
-      vite: 4.3.9(@types/node@20.4.9)
-      vite-node: 0.33.0(@types/node@20.4.9)
+      vite: 4.3.9(@types/node@20.5.0)
+      vite-node: 0.33.0(@types/node@20.5.0)
       vite-plugin-checker: 0.6.1(vite@4.3.9)
       vue: 3.3.4
       vue-bundle-renderer: 1.0.3
@@ -1845,19 +1842,19 @@ packages:
   /@types/http-proxy@1.17.11:
     resolution: {integrity: sha512-HC8G7c1WmaF2ekqpnFq626xd3Zz0uvaqFmBJNRZCGEZCXkvSdJoNFn/8Ygbd9fKNQj8UzLdCETaI0UWPAjK7IA==}
     dependencies:
-      '@types/node': 18.17.3
+      '@types/node': 20.5.0
     dev: true
 
   /@types/json-schema@7.0.12:
     resolution: {integrity: sha512-Hr5Jfhc9eYOQNPYO5WLDq/n4jqijdHNlDXjuAQkkt+mWdQR+XJToOHrsD4cPaMXpn6KO7y2+wM8AZEs8VpBLVA==}
     dev: true
 
-  /@types/node@18.17.3:
-    resolution: {integrity: sha512-2x8HWtFk0S99zqVQABU9wTpr8wPoaDHZUcAkoTKH+nL7kPv3WUI9cRi/Kk5Mz4xdqXSqTkKP7IWNoQQYCnDsTA==}
-    dev: true
-
   /@types/node@20.4.9:
     resolution: {integrity: sha512-8e2HYcg7ohnTUbHk8focoklEQYvemQmu9M/f43DZVx43kHn0tE3BY/6gSDxS7k0SprtS0NHvj+L80cGLnoOUcQ==}
+    dev: true
+
+  /@types/node@20.5.0:
+    resolution: {integrity: sha512-Mgq7eCtoTjT89FqNoTzzXg2XvCi5VMhRV6+I2aYanc6kQCBImeNaAYRs/DyoVqk1YEUJK5gN9VO7HRIdz4Wo3Q==}
     dev: true
 
   /@types/parse-json@4.0.0:
@@ -1938,7 +1935,7 @@ packages:
       '@babel/core': 7.22.10
       '@babel/plugin-transform-typescript': 7.22.10(@babel/core@7.22.10)
       '@vue/babel-plugin-jsx': 1.1.5(@babel/core@7.22.10)
-      vite: 4.3.9(@types/node@20.4.9)
+      vite: 4.3.9(@types/node@20.5.0)
       vue: 3.3.4
     transitivePeerDependencies:
       - supports-color
@@ -1951,7 +1948,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.3.9(@types/node@20.4.9)
+      vite: 4.3.9(@types/node@20.5.0)
       vue: 3.3.4
     dev: true
 
@@ -5545,7 +5542,7 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /nuxt@3.6.5(@types/node@20.4.9):
+  /nuxt@3.6.5(@types/node@20.5.0):
     resolution: {integrity: sha512-0A7V8B1HrIXX9IlqPc2w+5ZPXi+7MYa9QVhtuGYuLvjRKoSFANhCoMPRP6pKdoxigM1MBxhLue2VmHA/VbtJCw==}
     engines: {node: ^14.18.0 || >=16.10.0}
     hasBin: true
@@ -5561,8 +5558,8 @@ packages:
       '@nuxt/schema': 3.6.5
       '@nuxt/telemetry': 2.3.2
       '@nuxt/ui-templates': 1.3.1
-      '@nuxt/vite-builder': 3.6.5(@types/node@20.4.9)(vue@3.3.4)
-      '@types/node': 20.4.9
+      '@nuxt/vite-builder': 3.6.5(@types/node@20.5.0)(vue@3.3.4)
+      '@types/node': 20.5.0
       '@unhead/ssr': 1.2.2
       '@unhead/vue': 1.2.2(vue@3.3.4)
       '@vue/shared': 3.3.4
@@ -7583,7 +7580,7 @@ packages:
     engines: {node: '>= 0.8'}
     dev: true
 
-  /vite-node@0.33.0(@types/node@20.4.9):
+  /vite-node@0.33.0(@types/node@20.5.0):
     resolution: {integrity: sha512-19FpHYbwWWxDr73ruNahC+vtEdza52kA90Qb3La98yZ0xULqV8A5JLNPUff0f5zID4984tW7l3DH2przTJUZSw==}
     engines: {node: '>=v14.18.0'}
     hasBin: true
@@ -7593,7 +7590,7 @@ packages:
       mlly: 1.4.0
       pathe: 1.1.1
       picocolors: 1.0.0
-      vite: 4.3.9(@types/node@20.4.9)
+      vite: 4.3.9(@types/node@20.5.0)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -7648,7 +7645,7 @@ packages:
       semver: 7.5.4
       strip-ansi: 6.0.1
       tiny-invariant: 1.3.1
-      vite: 4.3.9(@types/node@20.4.9)
+      vite: 4.3.9(@types/node@20.5.0)
       vscode-languageclient: 7.0.0
       vscode-languageserver: 7.0.0
       vscode-languageserver-textdocument: 1.0.8
@@ -7673,7 +7670,7 @@ packages:
       open: 9.1.0
       picocolors: 1.0.0
       sirv: 2.0.3
-      vite: 4.4.9(@types/node@20.4.9)
+      vite: 4.4.9(@types/node@20.5.0)
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -7693,12 +7690,12 @@ packages:
       kolorist: 1.8.0
       magic-string: 0.30.2
       shell-quote: 1.8.1
-      vite: 4.4.9(@types/node@20.4.9)
+      vite: 4.4.9(@types/node@20.5.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite@4.3.9(@types/node@20.4.9):
+  /vite@4.3.9(@types/node@20.5.0):
     resolution: {integrity: sha512-qsTNZjO9NoJNW7KnOrgYwczm0WctJ8m/yqYAMAK9Lxt4SoySUfS5S8ia9K7JHpa3KEeMfyF8LoJ3c5NeBJy6pg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -7723,7 +7720,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 20.4.9
+      '@types/node': 20.5.0
       esbuild: 0.17.19
       postcss: 8.4.27
       rollup: 3.28.0
@@ -7731,7 +7728,7 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vite@4.4.9(@types/node@20.4.9):
+  /vite@4.4.9(@types/node@20.5.0):
     resolution: {integrity: sha512-2mbUn2LlUmNASWwSCNSJ/EG2HuSRTnVNaydp6vMCm5VIqJsjMfbIWtbH2kDuwUVW5mMUKKZvGPX/rqeqVvv1XA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -7759,7 +7756,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 20.4.9
+      '@types/node': 20.5.0
       esbuild: 0.18.20
       postcss: 8.4.27
       rollup: 3.28.0
@@ -8154,12 +8151,4 @@ packages:
       archiver-utils: 2.1.0
       compress-commons: 4.1.1
       readable-stream: 3.6.2
-    dev: true
-
-  github.com/tauri-apps/tauri-plugin-sql/b8fd19dac907cc8c3d78681cd4803a326b8b861e:
-    resolution: {tarball: https://codeload.github.com/tauri-apps/tauri-plugin-sql/tar.gz/b8fd19dac907cc8c3d78681cd4803a326b8b861e}
-    name: tauri-plugin-sql-api
-    version: 0.0.0
-    dependencies:
-      '@tauri-apps/api': 1.4.0
     dev: true
