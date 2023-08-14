@@ -17,8 +17,7 @@
     "@pinia/nuxt": "^0.4.11",
     "@tauri-apps/api": "^1.4.0",
     "@types/node": "^20.4.9",
-    "nuxt": "^3.6.5",
-    "tauri-plugin-sql-api": "github:tauri-apps/tauri-plugin-sql#v1"
+    "nuxt": "^3.6.5"
   },
   "dependencies": {
     "@tauri-apps/cli": "^1.4.0"

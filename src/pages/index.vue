@@ -4,8 +4,6 @@ const query = ref("tensura")
 
 <template>
     <main>
-        {{ query }}
-        <input type="text" v-model="query">
-        <NuxtLink :to="'/search/' + query">test</NuxtLink>
+
     </main>
 </template>

@@ -2,7 +2,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: false,
-  // modules: ['@nuxthq/ui', '@pinia/nuxt'],
   modules: [
     ['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'] }],
     '@nuxtjs/tailwindcss',

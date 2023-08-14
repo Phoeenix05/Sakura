@@ -3,10 +3,10 @@
     "beforeBuildCommand": "pnpm generate",
     "beforeDevCommand": "pnpm dev",
     "devPath": "http://localhost:3000",
-    "distDir": "../dist"
+    "distDir": "../.output/public"
   },
   "package": {
-    "productName": "Mangadex Reader",
+    "productName": "Sakura",
     "version": "0.1.0"
   },
   "tauri": {
@@ -36,7 +36,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "io.github.phoeenix05.mangadex-reader",
+      "identifier": "io.github.phoeenix05.sakura",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
@@ -68,7 +68,7 @@
         "minWidth": 800,
         "minHeight": 550,
         "resizable": true,
-        "title": "Mangadex Reader"
+        "title": "Sakura"
       }
     ]
   }

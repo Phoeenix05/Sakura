@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <NuxtLink to="/">Home</NuxtLink>
+    <Navbar />
     <main>
         <slot></slot>
     </main>
