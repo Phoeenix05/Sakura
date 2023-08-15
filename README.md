@@ -9,7 +9,18 @@ Sakura or formerly known as Mangadex Reader is a desktop application for reading
 
 The UI for the application won't be looking that good for the time being as this is a project that I'm currently working on in my freetime when I don't have school but I will try to improve it bit by bit overtime.
 
-### Contributors
+### Why
+Well because I wanted to create a application that I could use and want to use for tracking what mangas I'm reading. Of course there already is applications like MyAnimeList and Kitsu that already do what I want to some extent but not completely. That is why I decided to create my own.
+
+### Features
+- Downloading mangas / manhwas / manhuas. (If they're available on [Mangadex](https://mangadex.org))
+- Tracking read progress. Though this will be manual.
+- Reading list where you can add mangas from any site and open the site in one click *(so that you don't have to have hundred tabs open in the browser)*.
+- ... More to come
+
+These are the main features I want to implement.
+
+## Contributors
 <p align="center">
   <a href="https://github.com/phoeenix05">
     <img src="https://github.com/phoeenix05.png" alt="Alt Text" width="64" height="64" style="border-radius: .2rem;">
