@@ -1,5 +1,19 @@
 {
     "tauri": {
+        "allowlist": {
+            "all": false,
+            "http": {
+                "all": false,
+                "request": true,
+                "scope": [
+                    "https://*.mangadex.org/*"
+                ]
+            },
+            "window": {
+                "all": false,
+                "startDragging": true
+            }
+        },
         "macOSPrivateApi": true,
         "windows": [
             {

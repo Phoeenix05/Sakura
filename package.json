@@ -17,7 +17,9 @@
     "@pinia/nuxt": "^0.4.11",
     "@tauri-apps/api": "^1.4.0",
     "@types/node": "^20.5.0",
-    "nuxt": "^3.6.5"
+    "dexie": "^3.2.4",
+    "nuxt": "^3.6.5",
+    "zod": "^3.22.0"
   },
   "dependencies": {
     "@tauri-apps/cli": "^1.4.0"
