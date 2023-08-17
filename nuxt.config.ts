@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
   ],
   imports: {
-    dirs: ['stores']
+    // dirs: ['stores', 'utils', 'components']
   },
   srcDir: './src'
 })

@@ -1,9 +1,14 @@
 <script setup lang="ts">
-const query = ref("tensura")
+import { useFollowingStore } from '@/stores/following';
+
+const following = useFollowingStore()
 </script>
 
 <template>
-    <main>
-
-    </main>
+    <template v-for="item in following.all">
+        <NuxtLink :to="`/manga/${item.id}`">
+            <p>{{ item.id }}</p>
+        </NuxtLink>
+        <button @click="following.removeManga(item.hash)">remove from history</button>
+    </template>
 </template>

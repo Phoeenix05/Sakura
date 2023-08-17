@@ -1,16 +1,15 @@
 <script setup lang="ts">
 const query = ref("")
 
-const nav = () => {
-    if (query.value != "") {
-        navigateTo('/search/' + query.value)
+const navigate = (q: string) => {
+    if (q == "") {
+        return
     }
+    navigateTo(`/search/${q}`)
 }
 </script>
 
 <template>
-    <div class="flex items-center">
-        <input type="text" v-model="query" class="border-[1px] border-black rounded-md m-1 p-1">
-        <p @click="nav">search</p>
-    </div>
+    <input name="search" type="text" v-model="query" class="border-2 rounded-lg border-black/75">
+    <label for="search" @click="navigate(query)">Search</label>
 </template>

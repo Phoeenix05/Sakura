@@ -1,15 +1,11 @@
-<script setup lang="ts">
-import { HomeIcon, BookmarkIcon } from "@heroicons/vue/24/outline";
-</script>
+<script setup lang="ts"></script>
 
 <template>
-    <div class="flex flex-row gap-2 ml-16">
-        <NuxtLink to="/" class="flex flex-row">
-            <HomeIcon class="w-6" />
-        </NuxtLink>
-        <NuxtLink to="/followed" class="flex flex-row">
-            <BookmarkIcon class="w-6" />
-        </NuxtLink>
-        <Searchbar />
-    </div>
+    <!-- <div class="absolute z-50 h-16 transform -translate-x-1/2 border-2 border-red-500 rounded-md bottom-4 left-1/2 w-52">
+    </div> -->
+    <NuxtLink to="/">Home</NuxtLink>
+    <br>
+    <NuxtLink to="/chapter/history">History</NuxtLink>
+    <br>
+    <Searchbar />
 </template>
