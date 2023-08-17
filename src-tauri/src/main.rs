@@ -1,8 +1,6 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-use tauri::Manager;
-
 #[tauri::command]
 fn user_agent(app: tauri::AppHandle) -> String {
     format!("Sakura {} / Tauri", app.package_info().version)
@@ -10,9 +8,12 @@ fn user_agent(app: tauri::AppHandle) -> String {
 
 fn main() {
     tauri::Builder::default()
-        .setup(|app| {
+        .setup(|_app| {
             #[cfg(debug_assertions)]
-            app.get_window("main").unwrap().open_devtools();
+            {
+                use tauri::Manager;
+                _app.get_window("main").unwrap().open_devtools();
+            }
 
             Ok(())
         })

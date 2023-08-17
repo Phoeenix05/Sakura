@@ -1,4 +1,8 @@
 <script setup lang="ts">
+// NOTE: Do not remove ——————————————————
+localStorage.setItem('User-Agent', await userAgent())
+// ——————————————————————————————————————
+
 import { useFollowingStore } from '@/stores/following';
 
 const following = useFollowingStore()
