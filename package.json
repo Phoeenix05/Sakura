@@ -12,6 +12,7 @@
     "@headlessui/vue": "^1.7.15",
     "@heroicons/vue": "^2.0.18",
     "@nuxt/devtools": "latest",
+    "@nuxthq/ui": "^2.7.0",
     "@nuxtjs/i18n": "8.0.0-rc.2",
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@pinia/nuxt": "^0.4.11",
