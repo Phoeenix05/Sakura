@@ -11,8 +11,8 @@ dependencies:
 
 devDependencies:
   '@headlessui/vue':
-    specifier: ^1.7.15
-    version: 1.7.15(vue@3.3.4)
+    specifier: ^1.7.16
+    version: 1.7.16(vue@3.3.4)
   '@heroicons/vue':
     specifier: ^2.0.18
     version: 2.0.18(vue@3.3.4)
@@ -852,8 +852,8 @@ packages:
       '@hapi/hoek': 9.3.0
     dev: true
 
-  /@headlessui/vue@1.7.15(vue@3.3.4):
-    resolution: {integrity: sha512-3ozVEgQ8mw09nWvUPN+8S6C8l3SM0lVT1aEN/+oP5Y4LF0WNMM9UrVisVTN9LLQ06v/X3EFA0blyL/vg8XNZlg==}
+  /@headlessui/vue@1.7.16(vue@3.3.4):
+    resolution: {integrity: sha512-nKT+nf/q6x198SsyK54mSszaQl/z+QxtASmgMEJtpxSX2Q0OPJX0upS/9daDyiECpeAsvjkoOrm2O/6PyBQ+Qg==}
     engines: {node: '>=10'}
     peerDependencies:
       vue: ^3.2.0
@@ -1455,7 +1455,7 @@ packages:
     engines: {node: '>=v16.14.0'}
     dependencies:
       '@egoist/tailwindcss-icons': 1.1.0(tailwindcss@3.3.3)
-      '@headlessui/vue': 1.7.15(vue@3.3.4)
+      '@headlessui/vue': 1.7.16(vue@3.3.4)
       '@iconify-json/heroicons': 1.1.12
       '@nuxt/kit': 3.6.5
       '@nuxtjs/color-mode': 3.3.0
