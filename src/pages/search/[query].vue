@@ -112,8 +112,8 @@ enum RelationshipType {
 }
 
 // ————————————————————————————————————————————————————————————
-import { useSearchHistory } from "@/stores/history";
 import { fetch } from "@tauri-apps/api/http";
+import { useSearchHistory } from "../../stores/history";
 
 const { query } = useRoute().params
 const history = useSearchHistory()

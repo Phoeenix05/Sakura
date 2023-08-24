@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useReadingHistory } from '@/stores/history';
+import { useReadingHistory } from "../../stores/history";
 
 const history = useReadingHistory()
 </script>

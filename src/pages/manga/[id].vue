@@ -63,8 +63,8 @@ enum DatumType {
 }
 
 // ————————————————————————————————————————————————————————————
-import { useFollowingStore } from "@/stores/following";
 import { fetch } from "@tauri-apps/api/http";
+import { useFollowingStore } from "../../stores/following";
 
 const { id } = useRoute().params
 const followed = useFollowingStore()

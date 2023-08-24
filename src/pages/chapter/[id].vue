@@ -10,8 +10,8 @@ interface AtHomeServer {
 }
 
 // ————————————————————————————————————————————————————————————
-import { useReadingHistory } from "@/stores/history";
 import { fetch } from "@tauri-apps/api/http";
+import { useReadingHistory } from "../../stores/history";
 
 const { id } = useRoute().params
 const history = useReadingHistory()
@@ -35,11 +35,11 @@ const { data, pending, error, refresh } = useAsyncData(async () => {
     <p v-if="pending">Loading...</p>
 
     <!-- Data loaded successfully -->
-    <main v-if="!pending && !error">
-        <template v-for="image in data?.chapter.dataSaver">
+    <div v-if="!pending && !error" class="flex flex-col items-center w-full">
+        <div v-for="image in data?.chapter.dataSaver" class="w-[800px] h-auto">
             <img :src="`${data?.baseUrl}/data-saver/${data?.chapter.hash}/${image}`" :alt="image" loading="lazy">
-        </template>
-    </main>
+        </div>
+    </div>
 
     <!-- Error occurred -->
     <div v-if="error">
