@@ -6,7 +6,9 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "prettier --plugin-search-dir . --check ./src/",
+    "format": "prettier --plugin-search-dir . --write ./src/"
   },
   "devDependencies": {
     "@headlessui/vue": "^1.7.16",
@@ -20,7 +22,8 @@
     "@types/crypto-js": "^4.1.1",
     "@types/node": "^20.5.1",
     "crypto-js": "^4.1.1",
-    "nuxt": "^3.6.5"
+    "nuxt": "^3.6.5",
+    "prettier": "^3.0.2"
   },
   "dependencies": {
     "@tauri-apps/cli": "^1.4.0"
