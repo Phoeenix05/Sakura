@@ -8,7 +8,8 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "prettier --plugin-search-dir . --check ./src/",
-    "format": "prettier --plugin-search-dir . --write ./src/"
+    "format": "prettier --plugin-search-dir . --write ./src/",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@headlessui/vue": "^1.7.16",
@@ -23,7 +24,8 @@
     "@types/node": "^20.5.1",
     "crypto-js": "^4.1.1",
     "nuxt": "^3.6.5",
-    "prettier": "^3.0.2"
+    "prettier": "^3.0.2",
+    "husky": "^8.0.0"
   },
   "dependencies": {
     "@tauri-apps/cli": "^1.4.0"
