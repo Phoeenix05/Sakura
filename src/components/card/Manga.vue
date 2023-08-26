@@ -9,7 +9,9 @@ const props = defineProps({
 	}
 })
 
-const { data, pending, error } = useAsyncData(async () => {
+const data2 = ref()
+
+const { /* data, */ pending, error } = useAsyncData(async () => {
 	const url = new URL(`https://api.mangadex.org/manga/${props.storeId}`)
 	url.searchParams.append('translatedLanguage[]', 'en')
 	url.searchParams.append('includes[]', 'cover_art')
@@ -20,17 +22,16 @@ const { data, pending, error } = useAsyncData(async () => {
 			'User-Agent': await invoke<string>('user_agent')
 		}
 	})
-	// console.log(response.data)
-	return response.data as any
+	data2.value = response.data
+	// return response.data as any
 })
 
 const image = (id: string): string => {
-	console.log(data.value)
-	const cover_art = data.value.data.relationships.find((e: any) => e.type == 'cover_art')
+	const cover_art = data2.value.data.relationships.find((e: any) => e.type == 'cover_art')
 	const fileName = cover_art.attributes.fileName
 
 	const url = new URL('https://mangadex.org/')
-	url.pathname = `covers/${id}/${fileName}`
+	url.pathname = `covers/${props.storeId}/${fileName}`
 
 	return url.toString()
 }
@@ -38,7 +39,7 @@ const image = (id: string): string => {
 
 <template>
 	<template v-if="!pending">
-		<div class="flex space-x-4 cursor-pointer">
+		<div class="flex m-2 space-x-4 cursor-pointer">
 			<img
 				:src="image($props.storeId)"
 				class="w-32 rounded-md"
@@ -46,12 +47,12 @@ const image = (id: string): string => {
 			<div class="space-y-2">
 				<!-- Title -->
 				<p class="text-xl font-bold w-[512px] truncate">
-					{{ data.data.attributes.title.en || data.data.attributes.title['ja-ro'] }}
+					{{ data2.data.attributes.title.en || data2.data.attributes.title['ja-ro'] }}
 				</p>
 
 				<!-- Description -->
 				<!-- TODO: Add truncation for description -->
-				<p class="w-[482px] h-24 overflow-hidden">{{ data.data.attributes.description.en }}</p>
+				<p class="w-[482px] h-24 overflow-hidden">{{ data2.data.attributes.description.en }}</p>
 
 				<!-- Latest chapter -->
 				<!-- <a
@@ -66,7 +67,7 @@ const image = (id: string): string => {
 	</template>
 
 	<template v-else-if="pending">
-		<div class="flex space-x-4">
+		<div class="flex m-2 space-x-4">
 			<USkeleton class="w-32 rounded-md h-[182px]" />
 			<div class="space-y-2">
 				<USkeleton class="w-[512px] h-7" />
