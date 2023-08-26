@@ -18,6 +18,13 @@
         "scope": [
           "https://*.mangadex.org/*"
         ]
+      },
+      "shell": {
+        "all": false,
+        "execute": false,
+        "open": true,
+        "scope": [],
+        "sidecar": false
       }
     },
     "bundle": {
