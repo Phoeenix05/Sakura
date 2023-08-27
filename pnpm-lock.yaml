@@ -34,15 +34,9 @@ devDependencies:
   '@tauri-apps/api':
     specifier: ^1.4.0
     version: 1.4.0
-  '@types/crypto-js':
-    specifier: ^4.1.1
-    version: 4.1.1
   '@types/node':
     specifier: ^20.5.1
     version: 20.5.1
-  crypto-js:
-    specifier: ^4.1.1
-    version: 4.1.1
   husky:
     specifier: ^8.0.0
     version: 8.0.0
@@ -52,6 +46,9 @@ devDependencies:
   prettier:
     specifier: ^3.0.2
     version: 3.0.2
+  valibot:
+    specifier: ^0.13.1
+    version: 0.13.1
 
 packages:
 
@@ -2102,10 +2099,6 @@ packages:
       minimatch: 9.0.3
     dev: true
 
-  /@types/crypto-js@4.1.1:
-    resolution: {integrity: sha512-BG7fQKZ689HIoc5h+6D2Dgq1fABRa0RbBWKBd9SP/MVRVXROflpm5fhwyATX5duFmbStzyzyycPB8qUYKDH3NA==}
-    dev: true
-
   /@types/eslint-scope@3.7.4:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}
     dependencies:
@@ -3379,10 +3372,6 @@ packages:
       path-key: 3.1.1
       shebang-command: 2.0.0
       which: 2.0.2
-    dev: true
-
-  /crypto-js@4.1.1:
-    resolution: {integrity: sha512-o2JlM7ydqd3Qk9CA0L4NL6mTzU2sdx96a+oOfPu8Mkl/PK51vSyoi8/rQ8NknZtk44vq15lmhAj9CIAGwgeWKw==}
     dev: true
 
   /css-declaration-sorter@6.4.1(postcss@8.4.28):
@@ -8046,6 +8035,10 @@ packages:
       is-generator-function: 1.0.10
       is-typed-array: 1.1.12
       which-typed-array: 1.1.11
+    dev: true
+
+  /valibot@0.13.1:
+    resolution: {integrity: sha512-SG2W1RHqE2LShl3p6tyERt6I+G6PQa9ZFVfkyNKXz01HBzL+tBeH5kXw/5AQeAzPJSjI3djVGBl1CyozA1kyBQ==}
     dev: true
 
   /validate-npm-package-license@3.0.4:
