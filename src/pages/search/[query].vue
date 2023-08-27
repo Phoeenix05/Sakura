@@ -35,6 +35,7 @@ const { data, pending, error } = useAsyncData(async () => {
 		<template class="flex flex-wrap justify-center">
 			<CardManga
 				v-for="manga in data?.data"
+				:key="manga.id"
 				:storeId="manga.id"
 				:mangaData="manga"
 				variant="full"
@@ -47,6 +48,7 @@ const { data, pending, error } = useAsyncData(async () => {
 	</template>
 
 	<template v-else-if="error">
-		<p>An error occurred: {{ error }}</p>
+		<p>An error occurred</p>
+		<pre>{{ error }}</pre>
 	</template>
 </template>

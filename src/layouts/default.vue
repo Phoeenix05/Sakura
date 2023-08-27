@@ -1,4 +1,5 @@
 <template>
+	<NuxtLink to="/">Home</NuxtLink>
 	<Searchbar />
 	<slot></slot>
 </template>
