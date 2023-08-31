@@ -1,0 +1,3 @@
+[submodule "sakura-website"]
+	path = sakura-website
+	url = https://github.com/phoeenix05/sakura-website

@@ -23,7 +23,8 @@ const { data, pending, error } = useAsyncData(async () => {
 	const response = await fetch<Output<typeof MangaListSchema>>(url.toString(), {
 		method: 'GET',
 		headers: {
-			'User-Agent': await userAgent()
+			'User-Agent': await userAgent(),
+			'Cache-Control': 'max-age=3600'
 		}
 	})
 	return response.data

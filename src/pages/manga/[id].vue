@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { fetch } from '@tauri-apps/api/http'
 
-// Route params
 const { id } = useRoute().params
 
 const {
 	data: feed,
-	pending,
-	error
+	pending: feed_pending,
+	error: feed_error
 } = useAsyncData(async () => {
 	const url = construct_url(`https://api.mangadex.org/manga/${id}/feed`, [
 		['limit', '500'],
@@ -18,7 +17,8 @@ const {
 	const response = await fetch<any>(url, {
 		method: 'GET',
 		headers: {
-			'User-Agent': await userAgent()
+			'User-Agent': await userAgent(),
+			'Cache-Control': 'max-age=3600'
 		}
 	})
 	return response.data
@@ -26,7 +26,7 @@ const {
 </script>
 
 <template>
-	<template v-if="!pending">
+	<template v-if="!feed_pending">
 		<NuxtLink
 			class="mb-2 ml-2"
 			:to="`/chapter/${chapter.id}`"
@@ -38,12 +38,12 @@ const {
 		<pre>{{ JSON.stringify(feed, null, 2) }}</pre>
 	</template>
 
-	<template v-else-if="pending">
+	<template v-else-if="feed_pending">
 		<p>Loading...</p>
 	</template>
 
-	<template v-else-if="error">
+	<template v-else>
 		<p>An error occurred</p>
-		<pre>{{ error }}</pre>
+		<pre>{{ feed_error }}</pre>
 	</template>
 </template>
