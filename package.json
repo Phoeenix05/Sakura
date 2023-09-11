@@ -22,7 +22,7 @@
     "@tauri-apps/api": "^1.4.0",
     "@types/node": "^20.5.1",
     "husky": "^8.0.0",
-    "nuxt": "^3.6.5",
+    "nuxt": "^3.7.1",
     "prettier": "^3.0.2",
     "valibot": "^0.13.1"
   },
