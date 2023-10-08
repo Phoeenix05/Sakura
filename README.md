@@ -4,6 +4,8 @@
     <img alt="github-snake" src="resources/banners/light.svg" />
 </picture>
 
+# I currently have no motivation to work on any of my projects
+
 ## Introduction
 Sakura or formerly known as Mangadex Reader is a desktop application for reading mangas, manhwas and manhuas from [Mangadex](https://mangadex.org). It can also be used to track different mangas across different sites. 
 
