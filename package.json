@@ -18,7 +18,7 @@
     "@nuxthq/ui": "^2.7.0",
     "@nuxtjs/i18n": "8.0.0-rc.3",
     "@nuxtjs/tailwindcss": "^6.8.0",
-    "@pinia/nuxt": "^0.4.11",
+    "@pinia/nuxt": "^0.5.1",
     "@tauri-apps/api": "^1.4.0",
     "@types/node": "^20.8.9",
     "husky": "^8.0.3",
