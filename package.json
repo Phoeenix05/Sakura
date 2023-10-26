@@ -21,7 +21,7 @@
     "@pinia/nuxt": "^0.4.11",
     "@tauri-apps/api": "^1.4.0",
     "@types/node": "^20.5.1",
-    "husky": "^8.0.0",
+    "husky": "^8.0.3",
     "nuxt": "^3.6.5",
     "prettier": "^3.0.2",
     "valibot": "^0.13.1"
