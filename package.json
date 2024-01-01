@@ -27,6 +27,6 @@
     "valibot": "^0.13.1"
   },
   "dependencies": {
-    "@tauri-apps/cli": "^1.4.0"
+    "@tauri-apps/cli": "^1.5.9"
   }
 }
