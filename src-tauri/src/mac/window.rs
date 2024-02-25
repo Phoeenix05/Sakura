@@ -372,7 +372,7 @@ pub fn setup_mac_window(app: &mut App) {
     app.get_window("main").unwrap().set_transparent_titlebar();
 
     let window_handle = app.get_window("main").unwrap();
-    update_window_theme(&window_handle, HexColor::WHITE);
+    update_window_theme(&window_handle, HexColor::BLACK);
 
     // Control window theme based on app update_window
     app.listen_global("hopp-bg-changed", move |ev| {

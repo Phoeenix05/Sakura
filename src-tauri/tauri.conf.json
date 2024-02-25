@@ -12,7 +12,15 @@
   },
   "tauri": {
     "allowlist": {
-      "all": false
+      "all": false,
+      "shell": {
+        "all": false,
+        "open": true
+      },
+      "window": {
+        "all": false,
+        "startDragging": true
+      }
     },
     "bundle": {
       "active": true,
@@ -29,7 +37,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "dev.aemil.sakura",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
@@ -56,10 +64,10 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 600,
+        "width": 1280,
+        "height": 900,
         "resizable": true,
-        "title": "sakura",
-        "width": 800
+        "title": "sakura"
       }
     ]
   }
