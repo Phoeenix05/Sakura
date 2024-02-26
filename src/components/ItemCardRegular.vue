@@ -5,11 +5,13 @@ defineProps<ItemCardProps>()
 </script>
 
 <template>
-  <div id="container"></div>
+  <section></section>
 </template>
 
-<style lang="less">
-#container {
+<style scoped lang="less">
+section {
+  margin: 0.5em;
+
   width: 12em;
   height: 18em;
 

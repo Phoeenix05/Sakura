@@ -1,1 +1,6 @@
 @import './base.css';
+
+html {
+  margin-top: 50px;
+  overscroll-behavior: none;
+}

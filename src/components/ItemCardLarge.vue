@@ -5,7 +5,17 @@ defineProps<ItemCardProps>()
 </script>
 
 <template>
-  <div id="container"></div>
+  <section></section>
 </template>
 
-<style lang="less"></style>
+<style scoped lang="less">
+section {
+  margin: 0.5em;
+
+  width: 24em;
+  height: 18em;
+
+  border: 2px red solid;
+  border-radius: var(--border-radius);
+}
+</style>

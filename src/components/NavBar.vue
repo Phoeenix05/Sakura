@@ -15,6 +15,7 @@ nav {
   height: 50px;
   top: 0;
 
-  // border-bottom: 1px red solid;
+  background-color: #222;
+  border-bottom: 1px red solid;
 }
 </style>
