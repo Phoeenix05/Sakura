@@ -8,12 +8,12 @@
 nav {
   box-sizing: border-box;
   position: fixed;
-  overflow: hidden;
+  top: 0;
+  left: 0;
   z-index: 99;
 
   width: 100vi;
   height: 50px;
-  top: 0;
 
   background-color: #222;
   border-bottom: 1px red solid;
