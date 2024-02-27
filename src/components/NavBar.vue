@@ -15,7 +15,7 @@ nav {
   width: 100vi;
   height: 50px;
 
-  background-color: #222;
-  border-bottom: 1px red solid;
+  background-color: var(--bg-secondary-night);
+  border-bottom: var(--border) var(--border-eerie) solid;
 }
 </style>
