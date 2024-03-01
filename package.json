@@ -16,7 +16,7 @@
     "@heroicons/vue": "^2.0.18",
     "@nuxt/devtools": "latest",
     "@nuxthq/ui": "^2.7.0",
-    "@nuxtjs/i18n": "8.0.0-rc.3",
+    "@nuxtjs/i18n": "8.1.1",
     "@nuxtjs/tailwindcss": "^6.10.3",
     "@pinia/nuxt": "^0.4.11",
     "@tauri-apps/api": "^1.4.0",
