@@ -47,8 +47,8 @@ devDependencies:
     specifier: ^3.0.3
     version: 3.0.3
   valibot:
-    specifier: ^0.13.1
-    version: 0.13.1
+    specifier: ^0.29.0
+    version: 0.29.0
 
 packages:
 
@@ -8229,8 +8229,8 @@ packages:
       which-typed-array: 1.1.11
     dev: true
 
-  /valibot@0.13.1:
-    resolution: {integrity: sha512-SG2W1RHqE2LShl3p6tyERt6I+G6PQa9ZFVfkyNKXz01HBzL+tBeH5kXw/5AQeAzPJSjI3djVGBl1CyozA1kyBQ==}
+  /valibot@0.29.0:
+    resolution: {integrity: sha512-JhZn08lwZPhAamOCfBwBkv/btQt4KeQhekULPH8crH053zUCLSOGEF2zKExu3bFf245tsj6J1dY0ysd/jUiMIQ==}
     dev: true
 
   /validate-npm-package-license@3.0.4:
@@ -8431,7 +8431,7 @@ packages:
     dependencies:
       '@types/node': 20.8.9
       esbuild: 0.18.20
-      postcss: 8.4.28
+      postcss: 8.4.32
       rollup: 3.28.0
     optionalDependencies:
       fsevents: 2.3.2
