@@ -1,23 +1,37 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-#[tauri::command]
-fn user_agent(app: tauri::AppHandle) -> String {
-    format!("Sakura {} / Tauri", app.package_info().version)
-}
+use crate::commands::*;
+use crate::state::SakuraState;
+use tauri::generate_handler;
+
+#[cfg(target_os = "macos")]
+#[macro_use]
+extern crate cocoa;
+
+#[cfg(target_os = "macos")]
+#[macro_use]
+extern crate objc;
+
+mod commands;
+#[cfg(target_os = "macos")]
+mod mac;
+mod state;
+#[cfg(target_os = "windows")]
+mod win;
 
 fn main() {
     tauri::Builder::default()
-        .setup(|_app| {
-            #[cfg(debug_assertions)]
-            {
-                use tauri::Manager;
-                _app.get_window("main").unwrap().open_devtools();
-            }
+        .manage(SakuraState::init())
+        .setup(|app| {
+            #[cfg(target_os = "macos")]
+            crate::mac::window::setup_mac_window(app);
+            #[cfg(target_os = "windows")]
+            crate::win::window::setup_win_window(app);
 
             Ok(())
         })
-        .invoke_handler(tauri::generate_handler![user_agent])
+        .invoke_handler(generate_handler![construct_url])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

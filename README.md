@@ -1,77 +1,46 @@
-<picture>
-    <source media="(prefers-color-scheme: dark)" srcset="resources/banners/dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="resources/banners/light.svg" />
-    <img alt="github-snake" src="resources/banners/light.svg" />
-</picture>
+# vue-project
 
-# I currently have no motivation to work on any of my projects
+This template should help get you started developing with Vue 3 in Vite.
 
-## Introduction
-Sakura or formerly known as Mangadex Reader is a desktop application for reading mangas, manhwas and manhuas from [Mangadex](https://mangadex.org). It can also be used to track different mangas across different sites. 
+## Recommended IDE Setup
 
-The UI for the application won't be looking that good for the time being as this is a project that I'm currently working on in my freetime when I don't have school but I will try to improve it bit by bit overtime.
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-### Why
-Well because I wanted to create a application that I could use and want to use for tracking what mangas I'm reading. Of course there already is applications like MyAnimeList and Kitsu that already do what I want to some extent but not completely. That is why I decided to create my own.
+## Type Support for `.vue` Imports in TS
 
-### Features
-- Downloading mangas / manhwas / manhuas. (If they're available on [Mangadex](https://mangadex.org))
-- Tracking read progress. Though this will be manual.
-- Reading list where you can add mangas from any site and open the site in one click *(so that you don't have to have hundred tabs open in the browser)*.
-- ... More to come
+TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
 
-These are the main features I want to implement.
+If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
 
-## Contributors
-<p align="center">
-  <a href="https://github.com/phoeenix05">
-    <img src="https://github.com/phoeenix05.png" alt="Alt Text" width="64" height="64" style="border-radius: .2rem;">
-  </a>
-</p>
+1. Disable the built-in TypeScript Extension
+    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
+    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
+2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
 
-![Static Badge](https://img.shields.io/badge/NuxtJS-%2300DC82?style=for-the-badge&logo=nuxtjs3&link=https%3A%2F%2Fnuxt.com%2F)
-![Static Badge](https://img.shields.io/badge/tauri-1C1C1C?style=for-the-badge&logo=tauri&logoColor=FFD000&link=https%3A%2F%2Ftauri.app)
+## Customize configuration
 
-> ![Static Badge](https://img.shields.io/badge/surrealdb-1C1C1C?style=for-the-badge&logo=surrealdb&logoColor=D401CD&link=https%3A%2F%2Fsurrealdb.com%2F)
+See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Installation
-I'll try to get A workflow for bundling the app working fot the beta release but for now you'll need to build the project yourself. You can check the [releases](https://github.com/Phoeenix05/sakura/releases) for application bundle for your platform.
+## Project Setup
 
-## Development
-
-#### Clone the repository
-```zsh
-git clone https://github.com/phoeenix05/sakura
-```
-
-#### Installing dependencies
-```zsh
+```sh
 pnpm install
-yarn install
-npm install
 ```
 
-#### Running the project
-```zsh 
+### Compile and Hot-Reload for Development
+
+```sh
 pnpm dev
-yarn dev
-npm run dev
 ```
 
-#### Building the project
-```zsh 
-pnpm tauri build
-yarn tauri build
-npx tauri build
-# or (not recommended as installing it is slow)
-cargo tauri build
+### Type-Check, Compile and Minify for Production
+
+```sh
+pnpm build
 ```
 
-## Credits
-Credits to [Mangadex](https://mangadex.org) for providing the ability to read chapters.
+### Lint with [ESLint](https://eslint.org/)
 
-## Contribution guidelines
-None. If you want to contribute just fork the repository make your changes and create a pull request. If there are things I would like to change in that pull request then I'll change them and merge the PR.
-
-## Licensing
-I am completely free and licensed under the [MIT license](https://github.com/Phoeenix05/sakura/blob/main/LICENSE). But if you like, you can feed me with a star on [GitHub](https://github.com/Phoeenix05/sakura).
+```sh
+pnpm lint
+```
