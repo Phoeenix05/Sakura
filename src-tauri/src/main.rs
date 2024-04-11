@@ -1,9 +1,8 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-use crate::commands::*;
+// use crate::commands::*;
 use crate::state::SakuraState;
-use tauri::generate_handler;
 
 #[cfg(target_os = "macos")]
 #[macro_use]
@@ -21,8 +20,10 @@ mod state;
 mod win;
 
 fn main() {
+    let app_state = tauri::async_runtime::block_on(async { SakuraState::init().await });
+
     tauri::Builder::default()
-        .manage(SakuraState::init())
+        .manage(app_state)
         .setup(|app| {
             #[cfg(target_os = "macos")]
             crate::mac::window::setup_mac_window(app);
@@ -31,7 +32,7 @@ fn main() {
 
             Ok(())
         })
-        .invoke_handler(generate_handler![construct_url])
+        .invoke_handler(tauri::generate_handler![])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

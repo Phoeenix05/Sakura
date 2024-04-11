@@ -2,18 +2,18 @@ import { defineStore } from 'pinia'
 
 // works as a sort of cache / search store / db
 //
-// also works only for mangadex.org, for now
+// uses cache store for the caching functionality
 export const useSearch = defineStore('search', {
   state: () => {
     return {}
   },
   getters: {
-    history: async (): Promise<{}> => {
-      return {}
+    history: async (): Promise<any[]> => {
+      return []
     }
   },
   actions: {
-    async query(): Promise<{}> {
+    async query(q: string): Promise<{}> {
       return {}
     }
   }
