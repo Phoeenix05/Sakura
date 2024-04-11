@@ -121,7 +121,6 @@ dependencies = [
  "surrealdb",
  "tauri",
  "tauri-build",
- "tokio",
 ]
 
 [[package]]
