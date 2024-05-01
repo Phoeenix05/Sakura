@@ -1,5 +1,4 @@
 {
-  "$schema": "../node_modules/@tauri-apps/cli/schema.json",
   "build": {
     "beforeBuildCommand": "pnpm build",
     "beforeDevCommand": "pnpm dev",
@@ -12,13 +11,8 @@
   },
   "tauri": {
     "allowlist": {
-      "all": false,
-      "shell": {
-        "all": false,
-        "open": true
-      },
       "window": {
-        "all": false,
+        "show": true,
         "startDragging": true
       }
     },
@@ -37,7 +31,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "dev.aemil.sakura",
+      "identifier": "dev.aemil.Sakura",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
@@ -63,13 +57,14 @@
     },
     "windows": [
       {
-        "fullscreen": false,
+        "title": "sakura",
+        "titleBarStyle": "Overlay",
+        "hiddenTitle": true,
         "width": 1280,
-        "minWidth": 640,
         "height": 900,
-        "minHeight": 900,
+        "fullscreen": false,
         "resizable": true,
-        "title": "sakura"
+        "visible": false
       }
     ]
   }

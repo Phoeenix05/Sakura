@@ -1,6 +1,0 @@
-version: 2.0
-shards:
-  luminance:
-    git: https://github.com/phoeenix05/luminance.git
-    version: 0.1.0+git.commit.ecf5af02eabbffe132397de83dec09ab8a23ef44
-

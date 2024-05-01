@@ -2,6 +2,8 @@
 
 #![cfg(target_os = "macos")]
 
+use cocoa::*;
+use objc::*;
 use hex_color::HexColor;
 use tauri::{App, Manager, Runtime, Window};
 
