@@ -36,16 +36,32 @@
   --section-gap: 160px;
 }
 
-html {
-  background: var(--color-background);
-}
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   font-weight: normal;
+  user-select: none;
+  cursor: default;
+}
+
+*::selection {
+  background: none;
+}
+
+[href],
+[onclick] {
+  cursor: pointer;
+}
+
+html {
+  background: var(--color-background);
+  overscroll-behavior: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
 
 body {

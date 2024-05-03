@@ -2,8 +2,13 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 mod window;
+mod pocketbase;
 
 fn main() {
+    pocketbase::pb_sidecar!(["migrate", "up"]);
+    pocketbase::pb_sidecar!(["admin", "create", "admin@aemil.dev", "password"]);
+    pocketbase::pb_sidecar!(["serve"]);
+
     tauri::Builder::default()
         .setup(|app| {
             #[cfg(target_os = "macos")]

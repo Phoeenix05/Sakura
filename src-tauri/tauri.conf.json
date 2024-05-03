@@ -14,6 +14,11 @@
       "window": {
         "show": true,
         "startDragging": true
+      },
+      "shell": {
+        "open": true,
+        "sidecar": true,
+        "scope": [{ "name": "pocketbase/pocketbase", "sidecar": true }]
       }
     },
     "bundle": {
@@ -23,7 +28,7 @@
       "deb": {
         "depends": []
       },
-      "externalBin": [],
+      "externalBin": ["pocketbase/pocketbase"],
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",
