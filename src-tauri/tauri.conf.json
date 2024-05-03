@@ -16,9 +16,7 @@
         "startDragging": true
       },
       "shell": {
-        "open": true,
-        "sidecar": true,
-        "scope": [{ "name": "pocketbase/pocketbase", "sidecar": true }]
+        "open": true
       }
     },
     "bundle": {
@@ -28,7 +26,7 @@
       "deb": {
         "depends": []
       },
-      "externalBin": ["pocketbase/pocketbase"],
+      "externalBin": [],
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",
@@ -67,6 +65,8 @@
         "hiddenTitle": true,
         "width": 1280,
         "height": 900,
+        "minWidth": 512,
+        "minHeight": 728,
         "fullscreen": false,
         "resizable": true,
         "visible": false
