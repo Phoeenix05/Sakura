@@ -6,7 +6,7 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "sakura",
+    "productName": "Sakura",
     "version": "0.1.0"
   },
   "tauri": {

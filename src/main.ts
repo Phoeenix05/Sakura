@@ -15,4 +15,4 @@ app.mount('#app')
 
 // there is a quick white flash without this
 import { appWindow } from '@tauri-apps/api/window'
-setTimeout(async () => await appWindow.show(), 100)
+setTimeout(async () => await appWindow.show(), 50)

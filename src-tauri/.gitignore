@@ -1,2 +1,3 @@
 /target/
-/pocketbase/
+/pocketbase/pb_data
+/pocketbase/pocketbase*
